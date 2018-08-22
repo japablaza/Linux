@@ -1,0 +1,1670 @@
+1. System Locale and Keyboard Configuration
+    /ect.locale.conf
+    localectl status
+    localectl list-locales
+    localectl set-locale <LANG=locale>
+    
+1.2 Changing the Keyboard Layout
+    localectl status
+    localectl list-keymaps
+
+1.2.3 Setting the Keymap
+    localectl set-keymap <map>
+    localectl set-keymap <map> --no-convert
+    localectl set-x11-keymap <map>
+    man localectl
+    localectl --no-convert set-x11-keymap de
+    
+        
+
+3.4 Aditional Resources
+    useradd(8)
+    userdel(8)
+    usermode(8)
+    groupadd(8)
+    groupdel(8)
+    groupmod(8)
+    gpasswd(1)
+    grpck(8)
+    pwck(8)
+    id(1)
+    umask(2)
+    group(5)
+    passwd(5)
+    shadow(5)
+
+4.  Access Control Lists
+    cp and mv copy or move any ACL associated
+
+4.1 Mounting Files Systems
+    mount -t ext3 -o acl <device-name> <partition>
+    mount -t ext3 -o acl /dev/VolGroup00/LogVol02 /work
+    /etc/fstab
+    Samba needs --with-acl-support
+
+4.1.1 NFS
+    /etc/export
+    /etc/fstab
+
+4.2 Setting Access ACLs
+    access ACLs  --> specific file or directory
+    default ACLs --> only associated with a directory --> Are optional
+    setfacl -m
+    setfacl -m u:pepe:rw /project/tt
+    setfacl -x <RULES> <FILES>
+
+4.3 Setting Default ACLs
+    setfacl -m d:user:rx /file   --> Default ACL
+
+4.4 Retrivinf ACLs
+    getfacl <file> or <directory>
+
+4.5 Archiving File Systems With ACLs
+    tar --acls
+    cp --preserve=mode
+    cp -a
+    cp -dR --preserve=all
+    dump
+    star
+
+4.6 Compatibility with Older Systems
+    ext_attr attribute
+    tune2fs -l <filesystem-device>
+    e2fsck
+    e2fsprogs
+
+5.  Gaining Provileges
+    su
+    sudo
+    usermod -a -G wheel <username>
+    Pluggable Authentication Module (PAM)
+    /etc/pam.d/su
+    /etc/sudoers
+    /var/log/messages  --> successful authentication using the sudo command
+    /var/log/secure    --> command issued along with the issuer's user name 
+    pam_tty_audit
+    /etc/pam.d/system-auth
+    pam_tty_audit(8)
+    sudoers(5)
+    visudo
+    /etc/sudoers  --> Defaults   timestamp_timeout=<value> --> Value in minutes
+    
+    Red Hat Content Delivery Network (CDN)
+
+6.  Registering the System and Attaching Subscriptions
+    subscription-manager
+    subscription-manager register
+    subscription-manager list --available.
+    ...
+    yum repolist
+    subscription-manager repos --list
+    subscription-manager repos --enable <repository>
+    subscription-manager repos --disable <repository>
+    ...
+    subscription-manager(8)
+    
+7.  Installing the Red Hat Support Tool
+    yum install redhat-support-tool
+    redhat-support-tool config user <username>
+    redhat-support-tool config <password>
+    
+7.3 Using the Red Hat Support Tool in Interactive Shell Mode
+    redhat-support-tool  --> config user <username>
+    ~/.redhat-support-tool/redhat-support-tool.conf
+    /etc/redhat-support-tool.conf
+    redhat-support-tool  --> config setting -g <value>
+    redhat-support-tool  --> config setting -u <value>    
+    redhat-support-tool  --> opencase
+    redhat-support-tool  --> getcase <case number>
+    redhat-support-tool  --> modifycase <case number>
+    
+8.  Yum
+    Gnu Provacy Guard (GnuPG)
+    parallel download
+    yum check-update
+    yum update <package_name>
+    yum install -d <package_name>
+    yum history
+    yum group update <group_name>
+    /etc/yum.conf
+
+8.1.2 Updating Packages
+    yum update  --> updating all packages and their dependencies
+    yum update --security --> updating Security-Related Packages
+    yum update-minimal --security  --> update packages inly to version containing the latest security updates
+
+8.1.4 Updating the System Off-line with ISO and Yum
+    mkdir <mount_dir>
+    mount -o loop <iso_name> <mount_dir>
+    cp <mount_dir>/media.repo /etc/yum.repos.d/<new.repo>
+    /etc/yum.repos.d/<new.repo>
+        add next line -->> baseurl=file://<mount_dir>
+
+8.2.1 Searching Packages
+    yum search <term...>
+    yum list all
+    yum list <glob_expression>  --> yum list name1\* name2\*
+    yum list installed <glob_expression>  --> yum list installed "name?-*"
+    yum list available <glob_expression>  --> yum list available name\*plugin\*
+    yum repolist
+    yum repolist -v
+    yum repoinfo
+    yum repolist all
+    yum info <package_name> ---> rpm -q --info <package_name>
+    yumdb info <package_name>
+    yumdb(8)
+    yum install <package_name> <package_name>
+    yum install -n --> parse by name
+    yum install -na --> parse by name and architecture
+    yum install -nevra --> parse by name:version-release.architecture
+    yum provides "*bin/named"
+    yum localinstall <path>
+    /var/cache/yum/$basearch/$releaserver/packages/ --> Downloaded packages
+    yum remove <package_name>
+    
+8.3.1 Listing Packages Groups
+    yum groups summary
+    yum group list <glob_expression>
+    yum group info <glob_expression>
+    yum group mark
+    yum group mark packages
+    yum group mark blacklist
+    yum(8)
+
+8.3.2 Installing a Package Group
+    yum group list ids --> yum group list ids kde\*
+    yum group list hidden ids --> yum group list ids kde\*
+    yum group install "group name"
+    yum group install <groupid>
+    
+8.4 Working with Transaction History 
+    yum history
+    /var/lib/yum/history
+    yum history list
+    yum history list all
+    yum history list <id> --> yum history list 1..5
+    yum histoty sync
+    yum history stats
+    yum history summary
+    yum history summary <id>
+    yum history summary <glob_expression>
+    yum histoty package-list <glob-expression>
+    yum history info <id>
+    yum history addon-info <id>   
+    yum history undu
+    yum history redo
+    yum -q history addon-info <id> saved_tx > <file_name>
+    yum load-transaction <file_name>
+    yum history new
+    /var/lib/yum/history
+    
+8.5 Configuring Yum and Yum Repositories
+    /etc/yum.conf
+    
+8.5.3 Using Yum Variables
+    /etc/yum.conf
+    /etc/yum.repos.d/
+    .repo
+    $releaserver  --> distroverpkg=<value> in /etc/yum.conf --> redhat-release
+    $arch  --> Python's os.uname()
+    $basearch
+    $YUM0-9
+    /etc/yum/vars/osname
+    
+8.5.4 Viewingthe Current Configuration
+    yum-config-manager
+    
+8.5.5 Adding, Enabling, and Disabling a Yum Repository
+    yum-config-manager --add-repo <repo_url>
+    yum-config-manager --enable <repo>
+    yum-config-manager --enable \*  --> To enable all repositories defined in /etc/yum.conf and /etc/yum.repos.d
+    yum-config-manager --disable <repo>
+    
+8.5.6 Creating a Yum Repository
+    yum install createrepo --> /dir/your_repo
+    createrepo --database /dir/your_repo
+    sqlite
+    
+8.6.1 Enabling, Configuring, and Disabling Yum Plug-ins
+    /etc/yum.conf --> pligins=1
+    /etc/yum/pluginconf.d/
+
+8.6.2 Installing Additional Yum Plig-ins
+    yum install yum-plugin-aliases
+    Red Hat kernel Application Binary Interface (kABI)
+    /etc/yum/pluginconf.d/kabi.conf
+    yum(8)
+    yumdb(8)
+    yum.conf(5)
+    yum-utils(1)
+
+9.  Managing Services with systemd
+    Systemd
+    /usr/lib/systemd/system
+    /run/systemd/system
+    /etc/systemd/system
+
+9.1.1 Main Features
+    Socket-based activation
+    Bus-based activation
+    Device-based activation
+    Path-based activation
+    System state snapshots
+    Mount and automount point management
+    Aggressive parallelization
+    Transactional unit activation logic
+    Backwards compatibility with SysV init
+    
+    Linux Standard Base Core Specification
+    
+9.1.2 Compatibility Changes
+    SysV init
+    Upstart
+    runlevel
+    systemctl
+    /etc/rc0.d
+    Linux Standard Base (LSB)
+    
+
+9.2 Managing System Services
+    /etc/rc.d/init.d
+    service
+    chkconfig
+    systemctl stop nfs-server.service
+    systemctl show nfs-server.service -p Names
+    chroot
+    kickstart
+    systemctl start <name>.service
+    systemctl stop <name>.service
+    systemctl restart <name>.service
+    systemctl try-restart <name>.service
+    systemctl reload httpd.service --> without restart and interrupt actively porcess
+    systemctl enable <name>.service --> 
+    
+9.2.1 Listing Service
+    systemctl list-units --type service
+    systemctl list-units --type service --all
+    systemctl list-unit-files --type service
+    systemctl is-active <name>.service
+    systemctl is-enabled <name>.service
+    
+    Displaying Services Ordered to Start Before a Service
+    systemctl list-dependencies --after gdm.service
+
+    Displaying Services Ordered to Start After a Service
+    systemctl list-dependencies --before gdm.service
+
+9.2.6 Enabling and Disabling a Service
+    systemctl enable <name>.service
+    /usr/lib/systemd/system/<name>.service
+    /etc/systemd/system
+    systemctl reenable <name>.service
+    systemctl disable <name>.service
+    systemctl mask <name>.service
+    systemctl unmask <name>.service
+
+9.3 Working with systemd Targets
+    before RH6 --> runlevels 0 to 6
+    with RH7 --> systemd targets 
+    
+    runlevel0.target --> poweroff.target
+    runlevel1.target --> rescue.target
+    runlevel2.target --> multi-user.target
+    runlevel3.target --> multi-user.target
+    runlevel4.target --> multi-user.target
+    runlevel5.target --> graphical.target
+    runlevel6.target --> reboot.target
+    
+    systemctl list-units --type target
+    systemctl list-units --type target --all        
+    systemctl isolate <name>.target
+
+    systemctl get-default
+    systemctl get-default <name>.target
+    
+    systemctl rescue --> Send message to logged users
+    systemctl --no-wall rescue --> Prevent system from sending message to logged users
+
+9.3.6 Changing to Emergency Mode
+    systemctl emergency --> Similar to systemctl isolate emergency.target
+    systemctl --no-wall emergency
+    
+9.4 Shutting Down, Suspending, and Hibernating the System
+    systemctl halt
+    shutdown --alt +m --> The now keyword is an alias for +0
+    systemctl poweroff
+    systemctl --no-wall poweroff
+    shutdown --poweroff <hh:mm>
+    /run/nologin --> 5 minutes before system shutdown
+    systemctl reboot
+    systemctl --no-wall reboot
+    systemctl suspend --> Saves the system state in RAM
+    systemctl hibernate --> Saves the system state on the hard drive
+    systemctl hybrid-sleep
+    shutdown -c --> A pending shutdown can be canceled by root
+
+9.5 Controlling systemd on a Remote Machine
+    systemctl --host <username>@<hostname> <command>
+
+9.6 Creating and Modifying systemd Unit Files
+
+...
+...
+...
+
+9.6.3 Sonverting SysV Init Scripts to Unit Files
+
+...
+...
+...
+
+9.6.4 Modifying Existing Unit File
+
+...
+...
+...
+
+9.6.5 Working with Instantiated Units
+
+...
+...
+...
+
+9.7 Additional Resources
+    systemctl(1)
+    systemd(1)
+    systemd-delta(1)
+    systemd.unit(5)
+    systemd.service(5)
+    systemd.target(5)
+    systemd.kill(5)
+    
+10. OpenSSH
+    packet sniffer
+    DNS poisoning
+    IP spoofing
+    128-bit encryption
+    x11 forwarding
+    port forwarding
+    kerberos authentication
+    Generic Security Services Application Program Interface (GSSAPI)
+
+10.1.4 Event Sequence of an SSH Connection
+    Cryptographic handshake
+    Transport layer is encrypted using symmetric cipher
+    client authenticates itself to the server
+    client interacts with the remote host over encrypted connection 
+
+10.1.4.1 Transport Layer
+    Keys are exchanged --> unique host key --> Creates a hash value used for exchanges and a shared secret value
+    The public key encryption algorithm is determined
+    The symmetric encryption algorithm is determined
+    The message authentication algorithm is determined
+    The hash algorithm is determined
+
+10.1.4.2 Authentication
+    Authentication methods -->private key-encoded signature or typing a password
+
+10.1.4.3 Channels
+    multiplexing
+    flow-control
+
+10.2 Configuring OpenSSH
+    client programs: ssh, scp and sftp
+    server program: sshd
+    /etc/ssh
+    ~/.ssh    
+    /etc/ssh/moduli --> Contains Diffie-Hellman groups
+    /etc/ssh/ssh_config --> SSH client configuration file
+    /etc/ssh/sshd_config --> sshd daemon
+    /etc/ssh/ssh_host_ecdsa_key --> ECDSA private key
+    /etc/ssh/ssh_host_ecdsa_key.pub --> ECDSA public key
+    /etc/ssh/ssh_host_key --> RSA private key version 1
+    /etc/ssh/ssh_host_key.pub --> RSA public key version 1
+    /etc/ssh/ssh_host_rsa_key --> RSA private key version 2
+    /etc/ssh/ssh_host_rsa_key.pub --> RSA public key version 2
+    /etc/pam.d/sshd --> PAM configuration
+    /etc/sysconfig/sshd
+
+    systemctl start sshd.service
+    systemctl stop ssh.service
+
+    systemctl enable ssh.service
+
+    network.target
+    ListenAddress 0.0.0.0
+    network-online.target --> sshd.service
+    /etc/systemd/system/sshd.service.d/local.conf
+    systemctl daemon-reload
+
+10.2.4 Using Key-based Authentication
+    /etc/ssh/sshd_config --> PasswordAuthentication no
+
+10.2.4.1 Generating Key Pairs
+    ssh-keygen -t ras --> RSA key pair for version 2on SSH protocol
+    ~/.ssh --> permissions are set to rwx------ or 700
+    ssh-copy-id <user>@<hostname> --> copy the public key to a remote machine
+    ssh-copy-id -i ~/.ssh/id_rsa.pub <user>@<hostname>  --> Specify the public key's file name 
+    ~/.ssh/authorized_keys
+    
+    ssh-keygen -t ecdsa 
+    ~/.ssh permissions are set to rwx------ or 700
+    ssh-copy-id <user>@<hostname>
+    ~/.ssh/id_ecdsa.pub
+
+    ssh-keygen -l -f /etc/ssh/ssh_host_ecdsa_key.pub --> check if the fingerprint is correct
+    ~/.ssh/known_hosts
+    ssh-keygen -R <remotehost_IP_or_URL> --> To remove a key 
+
+10.2.4.2 Configuring ssh-agent
+    ssh-agent
+    /usr/bin/ssh-add
+    
+10.3.2 Using the SCP Utility
+    scp <local_file> <username>@<hostname>:<remotefile> --> Local files to a remote system
+    scp <username>@<hostename>:<remotefile> <localfile> --> Remote files to the local system
+
+10.3.3 Using the sftp Utility
+    sftp <username>@<hostname>
+        ls[directory]
+        cd <directory>
+        mkdir <directory>
+        rmdir <path>
+        put <localfile> [remotefile] --> transfer localfile
+        get <remotefile> [localfile] --> transfer remotefile
+    sftp(1)
+    
+10.4.1 X11 Forwarding
+    ssh -Y <username>@<hostname>
+    yum group install "X Windows System"
+    ssh --> system-config-printer &
+
+10.4.2 Port Forwarding 
+    Setting up port forwarding to listen on ports below 1024 requires ROOT level access
+    ssh -L <local-port>:<remote-hostname>:<remote-port> <username>@<hostname>
+    AllowTcpForwarding No
+    /etc/ssh/sshd_config 
+    sshd(8)
+    ssh(1)
+    scp(1)
+    sftp(1)
+    ssh-keygen(1)
+    ssh_config(5)
+    sshd_config(5)
+
+11. TigerVNC
+    Tiger Virtual Network Computing
+    vncserver
+    vncviewer
+    /etc/systemd/system/vncserver@.service
+    Xvnc
+    yum install tigervnc-server
+    cp /usr/lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
+    systemctl daemon-reload
+    vncpasswd
+    
+11.1.2.1 Configuring VNC Server for Two Users
+    /etc/systemd/system/vncserver-USER_1@.service
+    /etc/systemd/system/vncserver-USER_2@.service
+    systemctl start vncserver@:display_number.service
+    systemctl enable vncserver@:display_number.service
+
+11.1.4 VNC Setup based on xinetd withXDMCP for GDM
+    yum install gdm tigervcn tigervcn-server xinet
+    systemctl enable xinet.service
+    systemctl get-default
+    systemctl set-default <target-name>
+    /etc/xinetd.d/xvncserver
+    /etc/services
+    init 3
+    init 5
+    
+    netstat -anu
+    netstat -anpt
+    apt-get install net-tool
+    vncviewer localhost:5950
+    
+    firewall-cmd --permanent --zone=public --add-port=5959/tcp
+    firewall-cmd --reload
+
+11.1.5 Terminating a VNC Session
+    systemctl disable vncserver@:<display_number>.service
+    systemctl stop vncserver@:<display_number>.service
+
+11.2 Sharing an Existing Desktop
+    By default a logged in user has a desktop provided by X Server on display 0
+    TigerVNC 
+    x0vncserver
+    yum install tigervnc-server
+    vncpasswd
+    x0vncserver -PasswordFile=.vnc/passwd -AlwaysShared=1
+
+11.3.2.1 Configuring the Firewall for VNC
+    firewall-cmd --list-all
+    firewall-cmd --add-rich-rule='rule family="ipv4" source address="<IP_Address>" service name=vnc-server accept'
+    To make permanet changes to the firewall add --permanent
+    firewall-cmd --zone=public --add-port=5904/tcp
+    firewall-cmd --zone=public --list-port
+
+11.3.3 Connectingto VNC Server Using SSH
+    vncviewer -via <user>@<host>:<display_number>
+    ExecStart=/usr/sbin/runuser -l <user> -c "/usr/bin/vncserver -localhost %i"
+
+11.4 Additional Resources
+    vncserver(1)
+    vncviewer(1)
+    vncpasswd(1)
+    Xvnc(1)
+    x0vncserver(1)
+
+12. Web Servers
+    hypertext transport protocol (HTTP)
+    apachectl graceful
+    apachectl configtest
+    /etc/httpd/conf.modules.d/
+    /etc/httpd/conf/httpd.conf
+    /etc/httpd/conf.d/autoindex.conf
+    /etc/httpd/conf.d/userdir.conf  --> Configures access to user directories: http://example.com/~username
+    /etc/httpd/conf.d/welcome.conf
+    
+    Multi-processing models (MPM)
+    /usr/sbin/httpd
+    /usr/sbin/httpd.worker
+    /etc/httpd/conf.modules.d/00-mpm.conf
+
+    Packaging Filesystem Layout
+    /var/cache/httpd
+    /usr/share/httpd/
+    /usr/share/httpd/icons -->http://localhost/icons
+    /etc/httpd/conf.d/autoindex.conf
+    /usr/httpd/manual --> http://localhost/manual
+    /usr/share/error --> /usr/share/doc/httpd-<version>/httpd-multilang-errordoc.conf
+
+    Authentication, Authorization and Access Control
+    /varlo/log/httpd/suexec.log --> syslog
+    /var/log/secure
+    /usr/bin/apxs --> /usr/sbin/apxs
+    mod_authn_dbd --> mod_auth_mysql, mode)auth_pgsql
+    mod_perl x-> not supported in httpd 2.4
+    mod_authz_ldap
+
+12.1.2 Updating the configuration
+    apachectl configtest
+
+12.1.3 Running the httpd Service
+    yum install httpd
+    systemctl start http.service
+    systemctl enable httpd.service
+    systemcto stop httpd.service
+    systemctl disable httpd.service
+    systemctl restart httpd.service
+    systemctl reload httpd.service
+    apachectl graceful --> reload configuration without affecting active requests
+    
+12.1.4 Verifying the Service Status
+    systemctl is-active httpd.service
+
+12.1.4 Editing the Configuration Files
+    /etc/httpd/conf/httpd.conf
+    /etc/httpd.conf.d
+    apachectl configtest --> check the configuration for possible errors
+
+12.1.5 Working with Modules
+    Dynamic Shared Objects (DSOs)
+    /usr/lib64/httpd/modules
+    /etc/httpd/conf.d
+
+12.1.5.2 Writing a Module
+    yum install httpd-devel --> include files, header files, and the APache eXtenSion (apxs)
+    apxs -i -a -c <module_name.c>
+
+12.1.6 
+    /usr/share/doc/httpd-<version>/httpd-vhost.config into /etc/httpd/conf.d
+    /etc/httpd/conf/httpd.conf --> Listen port
+
+12.1.7 Setting Up an SSL Server
+    Secure Sockets Layer (SSL) --> cryptographic protocol that allow a server and client
+    Transport Layer Security (TLS) --> Ensures both privacy and data integrity
+    mod_ssl --> OpenSSL toolkit
+    RHEL --> Supports the use of Mozilla NSS --> mod_nss
+
+12.1.7.1 An Overview of Certificates and Security
+    Based in the use of keys
+    Symmetric cryptography
+    Asymmetric cryptography --> public --> two-keys co-exist
+    Certificate Authority (CA)
+
+12.1.8 Enabling the mod_ssl Module
+    yum install mod_ssl openssl
+    /etc/httpd/conf.d/ssl.conf
+    POODLE: SSLv3 vulnerability (CVE-2014-3566)
+
+12.1.8.1 Enabling and Disabling SSL and TLS and mod_ssl
+    /etc/httpd/conf.d/ssl.conf
+
+12.3 Testing the Status of SSL and TLS Protocols
+    openssl s_client -connect <hostname:port> -<protocol>
+    Example: openssl s_client -connect localhost:443 -ssl3
+    s_client(1)
+    
+12.1.9 Enabling the mod_nss Module
+    yum remove mod_ssl
+    yum install mod_nss --> default port 8443
+    certutil -L -d /etc/httpd/alias
+    certutil -W -d /etc/httpd/alias
+
+    Adding a Certificate to the Mozzilla NSS database
+    certutil -d /etc/httpd/<nss-db-directory>/ -A -n "CA_certificate" -tCT,, -a -i certificate.pem
+    /etc/httpd/conf.d/nss.conf
+    /etc/htpd/password.conf
+    chmod 640 /etc/htps/password.conf
+
+12.5 Enabling and Disabling SSL and TLS in mod_nss
+    /etc/httpd/conf.d/nss.conf
+    service httpd restart
+    yum install openssl
+
+12.1.10 Using an Existing key and Certificate
+    /etc/pki/tls/private
+    /etc/pki/tls/cert
+    /etc/httpd/conf.d/ssl.conf --> SSLCertificatedFile --> SSLCertificateKeyFile
+
+    Using a key an certificate from the Red Hat Secure Web Server
+    /etc/httpd/conf/httpsd.key
+    /etc/httpd/conf/httpsd.crt    
+
+12.1.11 Generating a New Key and Certificate
+    yum install crypto-utils
+    opensslreq -x509 -new -set_serial <number> -key <hostname>.key -out <hostname>.crt
+    rm /etc/pki/tls/private/<hostname>.key
+    genkey <hostname>
+
+12.1.12 Configure the Firewall for HTTP and HTTPS Using the Command Line
+    firewall-cmd --add-service http
+    firewall-cmd --add-service https
+    firewall-cmd --list-all
+
+12.1.13 Additional Resources
+    httpd(8)
+    genkey(1)
+    apachectl(8)
+    yum install httpd-manual
+    apachectl greaceful
+    http://localhost/manual
+    http://httpd.apache.org
+    http://www.openssl.org
+
+13  Mail Server
+    Simple Mail Transfer Protocol (SMTP)
+    Post Office Protocol (POP)
+    Internet Message Access Protocol (IMAP)
+    Multiurpose Internet Mail Extensions (MIME)
+    APOP --> POP3 with MD5 authentication
+    KPOP --> POP3 with Kerberos authentication
+    RPOP --> POP3 with RPOP authentication
+    Mail Transport Agent (MTA)
+    Mail Delivery Agent (MDA)
+    Local Delivery Agent (LDA)
+    Mail User Agent (MUA)
+
+
+13.1.2.1 POP
+    Dovecot
+    yum install dovecot
+
+13.1.2.2 IMAP
+    Dovecot
+    stunnel
+
+13.1.2.3 Dovecot
+    /etc/dovecot/dovecot.conf
+    systemctl restart dovecot
+    systemctl enable dovecot
+    /etc/dovecot/conf.d/10-ssl.conf
+    /etc/pki/dovecot/dovecot-openssl.cnf
+    /etc/pki/dovecot/certs/dovecot.pem
+    /etc/pki/dovecot/private/dovecot.pem
+    /usr/libexec/dovecot/mkcert.sh -->  creates the dovecot self signed certificate
+    systemctl restart dovecot
+
+13.2.1     
+    Postfix
+    Sendmail
+    Fetchmail
+
+13.2.2 Mail Delivery Agent 
+    mail
+    Procmail
+
+13.2.3 Mail User Agent
+    Evolution
+    Mutt --> Simple text-based
+
+13.3 Mail Transport Agents
+    Postfix --> Default
+    Sendmail --> Deprecated
+    alternatives --config mta --> switch default MTA
+    systemctl enable <service>
+    systemctl disable <service>
+
+13.3.1 Postfix
+    Originally developed at IBM by security expert and programmer Wietse Veneme
+    Uses a modular design, small processes with limited privileges. Using MASTER daemon 
+    /etc/postfix
+    /etc/postfix/access
+    /etc/postfix/main.cf
+    /etc/postfix/master.cf
+    /etc/postfix/transport
+    systemctl restart postfix
+    
+13.3.1.4 Using Postfix with LDAP
+    aliases --> /etc/postfix/main.cf
+    /etc/postfix/ldap-aliases.cf
+    virtual
+    canonical
+    ldap_table(5)
+    
+13.3.2.2 The Default Sendmail Installation
+    yum install sendmail
+    yum install sendmail-cf
+    /etc/mail/sendmail.cf
+    /etc/mail/sendmail.mc
+    make all -C /etc/mail
+    /etc/mail/access
+    /etc/mail/domaintable
+    /etc/mail/local-host-names
+    /etc/mail/mailertable
+    /etc/mail/virtusertable
+    cd /etc/mail --> make all --> make <name>.db all
+    systemctl restart sendmail
+    @example.com <user>@other-example.com
+    make virtusertable.db all --> ALL option will result in the virtusertable.db and access.db being updated at the same time
+    /usr/share/sendmail-cf/README
+    
+13.3.2.4 Masquereding
+    /etc/mail/sendmail.mc
+
+13.3.2.5 Stopping Spam
+    header checks
+    relaying denail
+    access database
+    sender information checks
+    Forwarding of SMTP messages, also called Relaying
+    /etc/mail/relay-domains
+    systemctl restart sendmail
+    /etc/mail/access
+    550 RFC-821 compliant error code
+    /etc/mail/access.db
+    makemap hash /etc/mail/access < /etc/mail/access
+    /usr/share/sendmail-cf/README
+    
+13.3.2.6 Using Sendmail with LDAP
+    /etc/aliases
+    /etc/mail/virtusertables
+    /etc/mail/sendmail.mc
+    /usr/share/sendmail-cf/README
+
+13.3.3 Fetchmail
+    yum install fetchmail
+    .fetchmailrc --> Port 25
+    .fetchmailrc --> global options
+    .fetchmailrc --> server options
+    .fetchmailrc --> user options
+
+13.3.3.2
+    global option --> daemon <seconds>
+    global option --> postmaster 
+    global option --> syslog --.. /varlogs/maillog
+
+13.3.4 Mail Transport Agent (MTA) Configuration
+    Postfix
+    Sendmail
+
+13.4 Mail Delivery Agents
+    Procmail --> LDAs
+    mail --> LDAs
+    ~/.procmailrc
+    /etc/procmailrc
+    /etc/procmailres/
+    ...
+    ...
+    ...
+
+13.4.2.6 Spam Filters
+    Procmail
+    yum install spamassassin
+    ~/.procmailrc
+    /etc.mail/spamassassin/spamassassin-default.rc
+    systemctl start spamassasin
+    systemctl enable spamassassin.service 
+
+13.5.1 Securing Communication
+    Evolution
+    Mutt
+    IMAP port 993
+    POP port 995
+
+13.5.1.2 Securing Email Client Communications
+    /etc/pki/dovecot
+    /etc/pki/dovecot/dovecot-openssl.cnf
+    rm -f certs/dovecot.pem private/dovecot.pem --> /usr/libexec/docercot/mkcert.sh
+    /etc/dovecot/conf.d/10-ssl.conf --> ssl_cert = </etc/pki/dovecot/certs/dovecot.pem
+    /etc/dovecot/conf.d/10-ssl.conf --> ss_key = </etc/pki/dovecot/private/dovecot.pem
+    systemctl restart dovecot
+    stunnel
+    /etc/stunnel/stunnel.conf
+
+13.6 Additional Resources
+    /usr/share/sendmail-cf/README
+    /usr/share/doc/postfix-<version-number>/
+    /usr/share/doc/fetchmail-<version-number>/
+    /usr/share/doc/procmail<version-number>/
+    man procmail
+    man procmailrc
+    man procmailex
+    man procmailsc
+    /usr/share/doc/spamassassin-<version-number>
+
+14. File and Print Servers
+    Samba
+    Server Message Block (SMB)
+    Common Internet File system (CIFS)
+    vsftpd
+    yum install samba
+    Active Directory (AD)
+    Domain controller (NT4-style)
+    regular Domain member (AD or NT4-style)
+    Primary Domain Controller (PDC)
+    Backup Domain Controller (BDC)
+
+14.1.2 Samba Daemons and Related Services
+    smbd --> smb
+    nmbd --> nmb
+    winbindd --> winbind
+    smb TCP ports 139 and 445
+    nmb UDP port 137
+    
+    winbindd
+    Microsoft RPC calls
+    Pluggable Authentication Modules (PAM)
+    Name Service Switch (NSS)
+    
+14.1.3 Connecting to a Samba Share
+    Nautilus --> smb://<servername>/<sharename>
+    smbclient //<hostname>/<sharename> -U <username>
+
+14.1.4 Mounting the Share
+    mount -t cifs //<servername>/<sharename> /mnt/point/ -o username=<username>, password=<password>
+    mount.cinfs(8)
+    yum install cifs-utils
+    cifs.upcall(8) --> performkerberized
+    
+14.1.5 Configuring a Samba Server
+    /etc/samba/smb.conf
+    systemctl restart smb.service
+    
+14.1.5.3 Encrypted Passwords
+    smbpasswd -a <username>
+    
+14.1.6 Starting and Stopping Samba
+    systemctl start smb.service
+    net join --> join the domain or AD
+    windbind before smbd
+    systemctl stop smb.service
+    systemctl restart smb.service
+    systemctl try-restart smb.service
+    systemctl enable smb.service
+
+14.1.7 Samba Security Modes
+    share-level
+    user-level
+    both levels --> security-level
+    security modes
+    
+14.1.7.1 User-Level Security
+    /etc/smaba/smb.conf
+    /etc/samba/smbusers
+
+14.1.8 Samba Network Browsing
+    NetBIOS over TCP/IP --> UDP
+    /etc/hosts
+
+14.1.9 Samaba Distribution Programs
+    net <protocol> <function> <misc_options> <target_options>
+    ads protocol
+    rap protocol
+    rpc protocol
+    net -l share -S wakko
+    net -l user -S wakko
+    nmblookup <options> <netbios_name>
+    pdbedit <options>
+    pdbedit -a kristin
+    rpcclient <server> <option>  --> Microsoft RPCs
+    smbcacls <//server/share/> <filename> <options> --> Windows ACLs
+    smbclient <//server/share> <password> <options>
+    smbcontrol -i <options>
+    smbcontrol <options> <destination> <messagetype> <parameters>
+    smbpasswd <options> <username> <password>
+    smbpool <job> <user> <title> <copies> <options> <filename>
+    smbstatus <options>
+    smbtar <options>
+    testparm
+    wbinfo <options>
+    
+14.1.10 Additional Resources
+    smb.conf(5)
+    samba(7)
+    smbd(8
+    nmbd(8)
+    winbindd(8)
+
+14.2 FTP
+    File Transfer Protocol (FTP)
+    vsftpd
+    FTP port 21
+    active mode
+    passive mode
+
+14.2.2 The vsftpd Server
+    Very Secure FTP Daemon (vsftpd)
+    libcap library
+    
+14.2.2.1 Starting and Stopping vsftpd
+    systemctl start vsftpd.service
+    systemctl stop vsftpd.service
+    systemctl restart vsftpd.service
+    systemctl try-restart vsftp.service
+    systemctl enable vsftpd.service
+    
+14.2.2.2 Starting Multiple Copies of vsftpd
+    multihoming
+    /etc/vsftpd/
+    /etc/vsftpd/vsftpd-site-2.conf
+    systemctl start vsftpd@configuration-file-name.service
+    systemctl start vsftpd.target
+
+14.2.2.3 Encrypting vsftpd Connections Using TLS
+    Secure Sockets Layer (SSL) --> older implementation of security protocol
+    Transport Layer Security (TLS)
+    /etc/vsftpd/vsftpd.conf
+    systemctl restart vsftpd.service
+    vsftpd.conf(5)
+    chcon -R -t public_content_t /path/to/directory
+    setsebool -P allow_ftpd_anon_write=1
+    vsftpd.conf(5)
+    vsftpd(8)
+    hosts_access(5)
+    ftpd_selinux(8) --> Interaction with SELinux
+    ftpd_selinux
+    
+14.3 Print Settings
+    Common Unix Printing System (CUPS)
+    cupsd.conf
+    stunnel    
+    localhost:631 --> TCP/UDP
+
+14.3.1 Starting the print Settings Configuration Tool
+    system-config-printer
+    Internet Printing Protocol (IPP)
+    
+14.3.7 Adding a Samba (SMB) printer
+    yum install samba-client
+    Linux printing Daemon (lpd)
+    lpstat -o
+    lp
+
+14.3.11 Additional Resources
+    lp(1)
+    lpr(1)
+    cancel(1)
+    mpage(1)
+    cupsd(8)
+    cupsd.conf(5)
+    classes.conf(5)
+    lpstat(1)
+    
+15. Configuring NTP Using the chromy Suite
+    Time Stamp Counter (TSC)
+    ntpd --> NTPv4
+    chronyd --> NTPv3 --> gpsd
+    Message Authentication code (MAC) --> MD5, SHA1
+    Auto key --> RFC 5906
+
+15.2 Undestanding chrony and its configuration
+    chronyd --> will use the last calculated drift stored in the drift file
+    chronyc --> Utility
+    /etc/chrony.conf
+    Comments should be preceded by #, %, ; or !
+    cmdallow
+    dumpdir
+    dumponexit
+    local
+    log
+    log measurements
+    log statistics
+    log tracking
+    log rtc
+    log refclocks
+    log tempcomp
+    makestep 
+    maxchange
+    maxupdateskew
+    noclientlog
+    reselectdist
+    stratumweight
+    rtcfile
+    rtcsync
+
+15.2.4 Security with chronyc
+    keyfile /etc/chrony.keys
+    localhost Port 323 Protocol UDP
+    chronyc> authhash SHA1
+    chronyc> password HEX:
+    chronyc -a --> authhash & password 
+    chronyc> activity
+    chronyc> authhash
+    chronyc> dns
+    chronyc> exit
+    chronyc> help
+    chronyc> password
+    chronyc> quit
+    chronyc> rtcdata
+    chronyc> sources
+    chronyc> sourcestats
+    chronyc> tracking
+    chronyc> waitsync
+
+15.3 Using chrony
+    yum install chrony
+    systemctl status chronyd
+    systemctl enable chronyd
+    systemctl stop chronyd
+    systemctl disable chronyd
+    chronyc -a makestep
+    
+15.4 Setting Up chrony for Different Envioronments
+    driftfile /var/lib/chrony/drift
+    commandkey 1
+    keyfile /etc/chrony.keys
+    
+15.4.2 Setting Up chrony for a System in an Isolated Network
+    settime
+    /etc/chrony.conf
+
+15.5 Using chronyc
+    chronyc -a 
+    chronyc -h <hostname> --> Remote Administration
+    chronyc -h <hostname> -p <port>
+
+15.6 Additional Resources
+    chrony(1)
+    chronyc(1)
+    chronyd(1)
+    chrony.conf(5)
+    /usr/share/doc/chrony*/chrony.txt
+
+16. Configuring NTP Using ntpd
+    Network Time Protocol (NTP)
+    Coordinated Universal Time (UTC)
+    Real Time Clock (RTC)
+    rtc(4)
+    hwclock(8)
+    Time Stamp COunter (TSC)
+    The kernel will in turn update the RTC every 11 minutes automatically
+
+16.2 NTP Strata
+    Stratum 0: GPS
+    Stratum 0: Mobile Phone Systems
+    Stratum 0: Low Frecuency Radio Broadcasts WWVB (Colorado, USA), JJY-40 and JJY-60 (Japan), DCF77 (Germany), and MSF (United Kingdom
+    
+    Stratum 1: Computer radio clock, GPS clock, or atomic clock attached
+
+    Stratum 2: Reads from stratum 1
+    Stratum 3: Reads from stratum 2
+
+    Stratum 16: Used to indicated an unsynchronized
+
+16.3 Understanding NTP
+    NTP represents the time as count of the number of seconds since 00:00 (midnight) 1 January, 2900 GMT
+    NTP will "roll over" in 2036
+    
+16.4 Understanding the Drift File
+
+16.5 UTC, Timezones, and DST
+    Universal Time, Coordinated (UTC)
+    Daylight Saving Time (DST)
+    /etc/localtime
+    /usr/share/zoneinfo
+    /etc/adjtime
+    ntpd(8)
+    ntp_auth(5)
+    /etc/ntp.conf
+    ntp_auth(8)
+    ntp-keygen(8)
+
+16.7 Managing the time on Virtual Machines
+    kvm-clock
+
+16.8 Understanding Leap Seconds
+    Greenwich Mean Time (GTM)
+    International Atomic Time (TAI)
+    Universal Time 1 (UT1)
+    International Earth Rotation and Reference System Service (IERS)
+    
+16.9 Understanding the ntpd Configuration File
+    /etc/ntp.conf
+    ntp.conf(5)
+    /etc/sysconfig/network --> PEERNTP=no
+
+16.11 Disabling chrony
+    systemctl stop chronyd
+    systemctl disable chronyd
+
+16.12 Checking if the NTP Daemon is Installed
+    yum install ntp
+    systemctl enable ntpd
+    systemctl status ntpd
+    ntpstat
+
+16.15 Configure the Firewall to Allow Incoming NTP Packets
+    NTP port 123 Protocol UDP
+
+16.16 Configure ntpdate Servers
+    ntpdate 
+    ntpdate -g
+    /etc/ntp/step-tickers
+
+16.17 Configure NTP
+    /etc/ntp.conf
+    ntp.conf(5)
+    ntp_acc(5)
+...
+...
+
+16.18 COnfiguring the Hardware Clock Update
+    hwclock --systohc
+    /etc/sysconfig/ntpdate --> SYNC_HWCLOCK=yes
+    systemctl enable ntpdate.service
+
+16.19 Configuring Clock Sources
+    cd /sys/devices/system/clocksource/clocksource0/
+    grubby --args=clocksource=tsc --update-kernel=DEFAULT
+
+16.20 Additional Resources
+    ntpd(8)
+    ntp.conf(5)
+    ntpq(8)
+    ntpdc(8)
+    ntp_auth(5)
+    ntp_keygen(8)
+    ntp_acc(5)
+    ntp_mon(5)
+    ntp_clock(5)
+    ntp_misc(5)
+    ntp_decode(5)
+    ntpstat(8)
+    ntptime(8)
+    tickadj(8)
+
+17. Configuring PTP Using ptp4l
+    Precision Time Protocol (PTP)
+    linuxptp
+    PTPv2 --> IEEE standard 1588 for Linux
+    ptp4l
+    phc2sys
+
+17.1.1 Understanding PTP
+    Best Master Clock (BMC)
+    Ordinary Clock (OC)
+    Boundary clock (BC)
+    Grandmaster clock --> GPS
+
+17.2 Using PTP
+    ethtool -T eth0
+    yum install linuxptp --> ptp4l and phc2sys
+
+17.2.3 Starting ptp4l
+    /etc/sysconfig/ptp4l.conf includes the -f /etc/ptp4l.conf
+    ptp4l(8)
+    systemstl start ptp4l
+    ptp4l -i eth0 -m
+    ptp4l -i eth0 -m -S
+
+17.3 Using PTP with Multiple Interfaces
+    sysctl --> utility is used to read and write values to the kernel
+
+    To change to loose mode filtering globally
+    sysctl -w net.ipv4.conf.default.rp_filter=2 
+    sysctl -w net.ipv4.conf.all.rp_filter=2
+    
+    To change the reverse path filtering mode per network interface
+    sysctl -w net.ipv4.conf.em1.rp_filter=2
+    
+    Make these settings persistent across reboot, modify the file
+    /etcsysctl.conf
+
+17.4 Specifying a Configuration File
+    ptp4l -f /etc/ptp4l.conf
+    
+
+17.5 Using the PTP Management Client
+    pmc -u -b 0 'GETCURRENT_DATA_SET'
+    pmc -u -b 0 'GET TIME_STATUS_NP'
+    pmc help
+    pmc(8)
+
+17.6 Synchronizing the Clocks
+    phc2sys
+    /etc/sysconfig/phc2sys
+    systemctl restart phc2sys
+    phc2sys -a -r --> you do not want to start as service
+    phc2sys -s eth0 -w --> synchronize the system clock to a specific interface's PTP hardware clock
+    phc2sys -s eth0 -O -36
+    systemctl start phc2sys --> started as a service
+    /etc/systemctl/phc2sys
+    phc2sys(8)
+
+17.7 Verifying Time Synchronization
+    /var/log/messages
+    phc2sys -u <summary-updates>
+    phc2sys -s eth0 -w -m -u 60
+
+17.8 Serving PTP Time with NTP
+    cat /etc/ntp/conf
+        server 127.127.1.0
+        fudge  127.127.1.0 stratum 0
+
+17.9 Serving NTP Time with PTO
+    cat /etc/ptp4l.conf
+        [global]
+        priority1 127
+        [eth0]
+    ptp4l -f /etc/ptp4l.conf
+
+17.10 Synchronize to PTP or BTP Time Using timemaster
+    Shared Memory Driver (SHM)
+    PTP hardware clock (PHC)
+    timemaster
+    /var/run/timemaster/
+    systemctl start timemaster
+    /etc/timemaster.conf
+    systemctl restart timemaster
+    ...
+    ...
+
+17.12.1 Installed documentation
+    ptp4l(8)
+    pmc(8)
+    phc2sys(8)
+    timemaster(8)
+    IEEE 1588 standard
+
+18 System Monitoring Tools
+    ps --> running processes
+    ps ax --> processes that are currently running
+    ps aux --> display the owner
+      USER: effective user name of the process owner
+      %CPU: the percentage of the CPU
+      %MEM: the percentage if the memory
+      VSZ:  the virtualmemory size in kilobytes
+      RSS:  the non-swapped physical memory size in kilobytes
+    top
+      PID:  Process ID
+      USER: The effective user name of the process owner
+      PI:   the priority
+      NI:   the nice value
+      VIRT: the amount of virtual memory the process uses
+      RES:  the amount of non-swapped physical memory the process uses
+      SHR:  the amount of shared memory the process uses
+      S:    the process status field
+      %CPU: the percentage of the CPU usage
+      %MEM: the percentage of the Memory usage
+      TIME+:the cumulated CPU time
+      COMMAND: name of the executable file
+    top(1)
+    System Monitor
+    free
+
+18.4 Viewing Block Devices and File Systems
+    lsblk
+    blkid
+    blkid -po udev <device_name>
+    findmnt
+    findmnt -l
+    df
+    du -h --. allows you to display the amount of space that is being used by files
+    du(1)
+    System Monitor --> File Systems
+
+18.5 Viewing Hardware Information
+    lspci -v|-vv
+    lsusb
+    lscpu
+
+18.6 Checking for Hardware Errors
+    yum install rasdaemon
+    sytemctl start rasdaemon
+    systemctl enable rasdaemon
+    ras-mc-ctl --help
+    ras-mc-ctl --summary
+    ras-mc-ctl --errors
+
+18.7 Monitoring Performance with Net-SNMP
+    net-snmp
+    net-snmp-libs
+    net-snmp-utils
+    net-snmp-perl
+    net-snmp-python
+    yum install <package>
+    systemctl start snmpd.service
+    systemctl enable snmpd.service
+    /etc/snmp/snmpd.conf
+    snmpd.conf
+    snmpconf
+    snmpwalk --> net-snmp-utils package must be installed 
+    systemctl reload snmpd.service
+...
+...
+
+18.8.1 Installed Documentattion
+    lscpu(1)
+    lsusb(8)
+    findmnt(8)
+    blkid(8)
+    lsblk(8)
+    ps(1)
+    top(1)
+    free(1)
+    df(1_
+    du(1)
+    lspci(8)
+    snmp(8)
+    snmpd.conf
+    
+19. OpenLMI
+    Open Linux Management Infrastructure (OpenLMI)
+    yum install tog-pegasus
+    yum install openlmi-{storage,networking,service,account,powermanagement}
+    /etc/Pegasus/access.conf
+    passwd pegasus
+    systemctl start tog-peagsus.service
+    systemctl enable tog-pegasus.service
+    firewall-cmd --add-port 5989/tcp
+    firewall-cmd --permanet --add-port 5989/top
+    yum install openlmi-tools
+    
+19.3 Configuring SSL Certificates for OpenPegasus
+    Web-Based Enterprise Management protocol (WBEM) --> HTTP transport layer --> OpenLMI
+    OpenPegasus CIMON --> HTTPS --. SSL/TLS
+    /etc/Pegasus/server.pem --> sslCertificateFilePath
+    /etc/Pegasus/file.pem --> sslKeyFilePath
+    /etc/Pegasus/client.pem --> sslTrustStore
+    systemctl restart tog-pegasus.service
+...
+...
+
+20. Viewing and Managing Log Files
+    rsyslogd
+    journald
+    systemd
+    /run/log/journal
+    /run/systemd/journal/syslog
+
+20.1 Location Lof Files
+    rsyslogd
+    /etc/rsyslog.conf
+    /var/log
+    logrotate
+    /etc/logrotate.conf
+    /etc/logrotate.d
+
+20.2.1 Filters
+    /etc/rsyslog.conf --> FACILITY.PRIORITY
+    FACILITY -->    kern(0)
+                    user(1)
+                    mail(2)
+                    daemon(3)
+                    auth(4)
+                    syslog(5)
+                    lpr(6)
+                    news(7)
+                    uucp(8)
+                    cron(9)
+                    authpriv(10)
+                    ftp(11)
+                    local0-local7(16-23)
+    PRIORITY -->    debug(7)
+                    info(6)
+                    notice(5)
+                    warning(4)
+                    err(3)
+                    crit(2)
+                    alert(1)
+                    emerg(0)
+Sending syslog messages over the network
+    @[(zNUMBER)]HOST:[PORT]    
+
+Storing syslog messages in a database
+    :PLUGIN:DB_HOST,DB_NAME,DB_USER,DB_PASSWORD;[TEMPLATE]
+    rsyslog-mysql
+    rsyslog-pgsql
+    /etc/rsyslog.conf
+...
+...
+
+20.4.2 Creating a New Directory for rsyslog Log Files
+    yum install polictycoreutil-python
+    semanage fcontext -a -t syslogd_var_lib_t /rsyslog
+    restorecon -R -v /rsyslog
+
+20.5 Configuring rsyslog on a Logging Server
+    yum install rsyslog
+    syslog traffic port: UDP/514 --> /etc/services
+    rsyslog defaults to using TCP/514
+    /etc/rsyslog.conf --> @@
+    semanage port -l | grep syslog
+...
+...
+
+20.7 Interaction of Rsyslog and Journal 
+...
+...
+
+20.8.3 Parsing JSON
+    mmjsonparse
+    Journal
+    Lumberjack
+    @cee
+    /etc/rsyslog.conf
+    
+
+20.8.4 Storing Messages in the MongoDB
+    Rsyslog
+    ommmongodb
+    
+20.10.1 Viewing LOg Files
+    journalctl
+    /var/log/messages
+    journalctl -o verbose
+    
+20.10.2 Access Control
+    usermod -a -G <adm> <username>
+    journalctl -f
+    journalctl -b
+    journalctl -p err
+    
+20.11 Managing Log Files in a Graphical Environment
+    yum install gnome-system-log
+
+20.12 Additional Resources
+    rsyslogd(8)
+    rsyslog.conf(5)
+    logrotate(8)
+    journalctl(1)
+    journald.conf
+    systemd.journal-fields(7)
+
+Installable Documentation
+    /usr/share/doc/rsyslog<version>/html/index.html
+    yum install rsyslog-doc
+
+21. Automating System Tasks
+    cron
+    anacron
+    at
+    batch
+    systemd.timer(5)
+
+21.1 Cron and Anacon
+    rpm -q cronie cronie-anacron
+    yum  install cronie cronie-anacron
+    systemctl status cond.service
+    systemctl start crond.service
+    systemctl enable crond.service
+    /etc/anacrontab
+...
+...
+
+21.2 At and Batch
+    rpm -q at
+    yum install at
+    systemctl start atd.service
+    systemctl enable atd.service
+    atq
+    /etc/at.deny
+    /etc/at.allow
+    /etc/systemd.system/one-time.service
+    /usr/local/bin/foobar.sh
+    
+21.4 Additional Resources
+    cron(8)
+    crontab
+    anacron(8)
+    anacrontab(5)
+    run-parts(4)
+
+22. Automatic Bug Reporting Tool (ABRT)
+    abrtd
+    libreport
+    yum install abrt-desktop
+    abrt-applet &
+    yum install abrt-cli
+    yum install libreport-plugin-mailx
+    /etc/libreport/plugins/mailx.conf
+    yum install abrt-java-connector
+    systemctl is-active abrtd.service
+    systemctl abrtd.service
+    kill - SEGV <number>
+    
+...
+...
+
+22.6 Additional Resources
+    abrtd(8)
+    abrt_event.conf(5)
+    
+23. OProfile
+    oprofile
+    opcontrol --reset
+    opcontrol -deinit
+    modprobe oprofile time=1
+    
+23.1.1 operf vs opcontrol
+    operf
+    opcontrol
+    operf --system-wide --> you need root authority
+...
+...
+
+32.13 Additional Resources
+    oprofile(1)
+    operf(1)
+    
+24. Working with the GRUB 2 boot Loader
+    GNU GRand Unified Boot loader (GRUB) 
+    /boot/grub2/grub.cfg
+    /boot/efi/EFI/redhat/grub.cfg --> on UEFI machines
+    /usr/sbin/grub2-mkconfig    
+    grubby
+    /etc/grub.d/
+    new-kernel-pkg
+    /etc/default/grub
+    
+24.3 Making Temporary Changes to a GRUB 2 Menu
+    rhgb
+    quiet
+    
+24.4 Making Persistent Changes to a GRUB 2 Menu Using the grubby
+    grubby
+    grub.cfg
+    /etc/grub2.cfg
+    grubby --default-kernel
+    grubby --default-index
+    grubby --set-default /boot/vmlinuz-3.10.0-229.4.2.el7.x86_64
+    grubby --info=ALL
+    grubby --info /boot/vmlinuz-3.10.0-229.4.2.el7.X86_64
+    grubby --remove-arg="argX argY" --arg"argA argB" --update-kernel /boot/kernel
+    grubby --update-kernel=ALL --arg=console=ttyS0,115200
+    
+24.6 Protecting GRUB2 with a Password
+    grub2-setpassword
+
+24.8.1 GRUB2 over a Serial Console
+    ...
+    ...
+
+25 Manually Upfrading the Kernel
+    yum
+    PackageKit
+    yum install syslinux
+    syslinux /dev/sd<X1>
+    mkdir /mnt/isoboot /mnt/diskboot
+    mount -o loop boot.iso /mnt/isoboot
+    mount /dev/sd<X!> /mnt/diskboot
+    yum list installed "kernel-*"
+    /etc/sysctl.conf
+    dracut -f
+    initramfs
+    lsinitrd <initramfs_files>
+    
+26. Working with Kernel Modules
+    yum install kmod
+    lsmod
+    /proc/modules/
+    modinfo <mode_name>
+    
+26.3 Loading a Module
+    modprobe <module_name> --> /lib/modules/<kernel_version>/kernel/drivers
+    
+26.4 Unloading a Module
+    modprobe -r <module_name>
+    depmod -a
+
+26.9 Additional Resources
+    lsmod(8)
+    modinfo(8)
+    modprobe(8)
+    rmmod(8)
+    ethtool(8)
+    mii-tool(8)
+    yum install kernel-doc
+
+27. Relax-and_recover (ReaR)
+    yum install rear genisoimage syslinux
+    /etc/rear/local.conf
+    rear -v mkrescue
+    rear recover
+    rear mkrescue
+    rear mkbackuponly
+    rear mkbackup
+    rear checklayout
+    echo $?
+
+LINKS:
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/index
+
+FTP
+http://slacksite.com/other/ftp.html
+
+NTP
+http://www.rfc-editor.org/info/rfc5905
