@@ -19,4 +19,3 @@
 - Anything followed by `..` represent arbitrary-length list of items of that type
 - Multiple items separated by pipes, `|`, means only one of them can be specified
 - Text in angle brackets, `< >`, represents variable data. For example, `<filename>` means insert the filename you wish to use here. Sometime these variables are simply written in capital letters `FILENAME`
-- 
