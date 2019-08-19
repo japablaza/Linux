@@ -3,7 +3,7 @@
 - How Do You Perform a Kickstart Installation?  
   `https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-howto`
 
-- Kickstart file  
+- Kickstart File  
   Post new installation, open `anaconda-ks.cfg`, located in the `/root/` directory.
   Copy this file, make any chages you need, and use the resulting file as Kickstart
 
