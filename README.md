@@ -11,7 +11,8 @@
 - Check dependencies
 > `rpm -qpR package.rpm`
 
-- List all the packages currently instelled on the local system
+- List all the packages currently instelled on the local system  
+
   `rpm --query --all`
 
 - List all files in all packages on the local system
