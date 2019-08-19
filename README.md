@@ -1,6 +1,6 @@
 # Information related to RHCSA
 
-## KVM
+## KVM (Kernel-based Virtual Machine)
 - Installation 
 	
 
@@ -13,3 +13,9 @@
 
 - Other commands related
 > `rpmbuild`
+
+## Key differences between RHEL 6 and RHEL 7
++ `systemd` is the service manager. Faster boot times than `Upstart` and the old `SysVinit` system.
++ XFS is the default filesystem. Supports filesystems up to  500TB in size.
++ The firewalld demon configures a zone-based firewall.
++ GNOME 3 is the default  desktop
