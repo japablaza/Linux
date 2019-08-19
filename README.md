@@ -5,8 +5,8 @@
 	
 
 ## RPM (Red Hat Package Manager)
-- Install RPMs
-> `rpm -ivh package.rpm`
+- Install RPMs  
+  `rpm -ivh package.rpm`
 
 - Check dependencies  
   `rpm -qpR package.rpm`
