@@ -12,14 +12,13 @@
   `rpm -qpR package.rpm`
 
 - List all the packages currently instelled on the local system  
-
   `rpm --query --all`
 
-- List all files in all packages on the local system
--- `rpm --query -all`
+- List all files in all packages on the local system  
+  `rpm --query -all`
 
-- Other commands related
-> `rpmbuild`
+- Other commands related  
+  `rpmbuild`
 
 ## Key differences between RHEL 6 and RHEL 7
 + `systemd` is the service manager. Faster boot times than `Upstart` and the old `SysVinit` system.
