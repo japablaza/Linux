@@ -6,10 +6,10 @@
 
 ## RPM (Red Hat Package Manager)
 - Install RPMs
-`rpm -ivh package.rpm`
+> `rpm -ivh package.rpm`
 
 - Check dependencies
-`rpm -qpR package.rpm`
+> `rpm -qpR package.rpm`
 
 - Other commands related
-`rpmbuild`
+> `rpmbuild`
