@@ -25,3 +25,9 @@
 + XFS is the default filesystem. Supports filesystems up to  500TB in size.
 + The firewalld demon configures a zone-based firewall.
 + GNOME 3 is the default  desktop
+
+## Linux Installation 
+- Calculate the SHA256 checksum
+  `sha256sum file_name.iso`
+- Create a boot disk
+  `dd if=name-of-image.iso of=/dev/sde bs=512k conv=fdatasync status=progress`
