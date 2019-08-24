@@ -12,3 +12,6 @@
 - PXE: Pre-Boot eXecution Envioronment
 - GNOME: GNU Network Object Model Envioronment
 - GNU: GNU's Not Unix!
+- MBR: Master Boot Record
+- LVM : Logical Volume Management
+- RAID: Redundant Array of Inexpensive Disks
