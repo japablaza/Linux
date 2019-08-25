@@ -8,3 +8,11 @@
 - `HTTPd` uses private `/tmp` directory
 -
 ## Basic Installation 
+
+- Installing Apache
+  `yum update -y`
+  `yum install https -y`
+
+- Check the Apache installation 
+  `systemctl status httpd.service`
+
