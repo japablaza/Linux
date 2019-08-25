@@ -7,7 +7,7 @@
 `wc` = words count
 `useradd` = add user in the current system
 `user` --<Tab><Tab>
-
+`firewall-cmd --list-all` = List the network interfaces in the default firewall zone
 
 # Links
 ## Metacharacter
