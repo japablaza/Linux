@@ -19,3 +19,4 @@
 - GRUB: GRand Unified Bootloader
 - RPM: Red-Hat Package Manager
 - XML: eXtensible Markup Language
+- System D: Refers to a person's ability to adapt quickly and improvise to solve problems 
