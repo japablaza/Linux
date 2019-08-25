@@ -17,3 +17,5 @@
 - RAID: Redundant Array of Independent Disks
 - XFS: Extents File System
 - GRUB: GRand Unified Bootloader
+- RPM: Red-Hat Package Manager
+- XML: eXtensible Markup Language
