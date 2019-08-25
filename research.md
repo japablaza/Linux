@@ -14,4 +14,6 @@
 - GNU: GNU's Not Unix!
 - MBR: Master Boot Record
 - LVM : Logical Volume Management
-- RAID: Redundant Array of Inexpensive Disks
+- RAID: Redundant Array of Independent Disks
+- XFS: Extents File System
+- GRUB: GRand Unified Bootloader
