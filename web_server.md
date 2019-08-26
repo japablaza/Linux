@@ -15,4 +15,5 @@
 
 - Check the Apache installation 
   `systemctl status httpd.service`
-
+  `systemctl start  httpd.service`
+  `systemctl enable httpd.service` --> The service starts after reboot
