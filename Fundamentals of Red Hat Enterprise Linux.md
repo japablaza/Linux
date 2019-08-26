@@ -8,6 +8,7 @@
 `useradd` = add user in the current system
 `user` --<Tab><Tab>
 `firewall-cmd --list-all` = List the network interfaces in the default firewall zone
+`hostname -I` = Display all network address of the host
 
 # Links
 ## Metacharacter
