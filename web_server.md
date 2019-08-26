@@ -17,3 +17,4 @@
   `systemctl status httpd.service`
   `systemctl start  httpd.service`
   `systemctl enable httpd.service` --> The service starts after reboot
+  `hostname -I` --> Display all network address of the host
