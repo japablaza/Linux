@@ -1,9 +1,13 @@
 # [Firewall]
 
-## Firewalld
+## Firewlld
+
+### Basic Commands
 - `firewall-cmd --list-all`
 - `firewall-cmd --zone=public --permanent --add-service=http`
+- `firewall-cmd --permanent --add-port=80/tcp
 - `firewall-cmd --zone=public --permanent --add-service=https`
+- `firewall-cmd --permanent --add-port=443/tcp
 - `firewall-cmd --zone=public --reload`
 
 ## IPTables
