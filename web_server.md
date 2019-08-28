@@ -21,7 +21,7 @@
 
 ## Secure Apache HTTPs with SSL
 
-- Install SSL module
+- Install SSL module 
   `yum install mod_ssl openssl`
 
 - Self-signed Certificate
