@@ -34,7 +34,7 @@
   `cp ca.csr /etc/pki/tls/private/`
 
 - Set Up The Certificates
-  `vi /etc/http/conf.d/ssl.conf`
+  `vi /etc/httpd/conf.d/ssl.conf`
   	 Under `<VirtualHost _default_:443>
 		`DocumentRoot "/var/www/html"` --> The website where you are going to use the SSL cert
 		`ServerName {LocalHost IP}:443 --> You can use `hostname -I` to find the local IP address
