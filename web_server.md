@@ -18,3 +18,17 @@
   `systemctl start  httpd.service`
   `systemctl enable httpd.service` --> The service starts after reboot
   `hostname -I` --> Display all network address of the host
+
+## Secure Apache HTTPs with SSL
+
+- Install SSL module
+  `yum install mod_ssl openssl`
+
+- Self-signed Certificate
+  `openssl genrsa -out ca.key -out ca.csr` --> Generat private key `ca.key`
+  `openssl req -new -key ca.key -out ca.csr` --> Generate cert signing request `ca.csr`
+  `openssl x509 -req -days 365 -in ca.csr -signkey ca.key -out ca.crt` --> Generate a self-signed certificate `ca.crt` of X509 type valid for 365 key
+
+  `cp ca.crt /etc/pki/tls/certs/`
+  `cp ca.key /etc/pki/tls/private/`
+  `cp ca.csr /etc/pki/tls/private/`
