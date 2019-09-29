@@ -2,7 +2,14 @@
 
 ## KVM (Kernel-based Virtual Machine)
 - Installation 
-	
+  Option 1 
+  `yum group install "Virtualization Host" "Virtualization Client"  
+  
+  Option 2  
+  `yum install \  
+   qemu-kvm \  
+   libvirt \  
+   virt-install`
 
 ## RPM (Red Hat Package Manager)
 - Install RPMs  
