@@ -38,4 +38,10 @@
   `sha256sum file_name.iso`
 - Create a boot disk
   `dd if=name-of-image.iso of=/dev/sde bs=512k conv=fdatasync status=progress`
-- RPM details is located in XML files under `/repodata`
+- RPM details is located in XML files under `/repodata`  
+
+
+## ToDO 
+- How to install apache?  
+- How to mount ISO  
+- Using `semanage`, `selinux`, and `chcon` 
