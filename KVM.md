@@ -12,6 +12,7 @@
 ## Packages and Installation  
 
 Packages | Description
+--- | ---
 qemu-kvm | The main KVM package
 libvirt | The libvirtd service to manage hypervisors
 libvirt-client | The virsh command and client API to manage virtual machines
