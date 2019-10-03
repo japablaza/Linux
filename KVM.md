@@ -9,6 +9,12 @@
 [Containers]
 - RHEL Atomic Host Project
 
+## Before Installing
+
+- Check the CPU  
+`lscpu | grep Virtualization`
+`cat /proc/cpuinfo | grep 'vmx\|svm'`
+
 ## Packages and Installation  
 
 ### Essential Packages
@@ -22,6 +28,7 @@ virt-manager | GUI VM administration tool
 virt-top | Command to display virtualization statistics
 virt-viewer | Graphical console to connect to VMs
 
+Yum Installation
 ```
 yum install qemu-kvm \
 libvirt \
@@ -38,8 +45,11 @@ Packages | Description
 Virtualization Host | Hypervisor
 Virtualization Client | Hypervisor client
 
+Yum Installation
 `yum group install 'Virtualization Host' 'Virtualization Host'`
 
+Checking KVM module loaded
+`lsmod | grep -i kvm`
 ### Helpful Packages
 Packages | Description
 --- | ---
