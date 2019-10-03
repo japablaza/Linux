@@ -11,6 +11,7 @@
 
 ## Packages and Installation  
 
+### Essential Packages
 Packages | Description
 --- | ---
 qemu-kvm | The main KVM package
@@ -21,6 +22,16 @@ virt-manager | GUI VM administration tool
 virt-top | Command to display virtualization statistics
 virt-viewer | Graphical console to connect to VMs
 
+### Group of Packages
+Packages | Description
+--- | ---
+Virtualization Host | Hypervisor
+Virtualization Client | Hypervisor client 
+
+### Helpful Packages
+Packages | Description
+--- | ---
+libguestfs-tools | Display the content of a VM disk or manage VM partitions and filesystems from the hypervisor host  
 ## Useful Commands  
 
 [virt-install]
