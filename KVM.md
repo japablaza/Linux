@@ -9,7 +9,18 @@
 [Containers]
 - RHEL Atomic Host Project
 
+## Packages and Installation  
 
+Packages | Description
+qemu-kvm | The main KVM package
+libvirt | The libvirtd service to manage hypervisors
+libvirt-client | The virsh command and client API to manage virtual machines
+virt-install | Command-line tools for creating VMs
+virt-manager | GUI VM administration tool
+virt-top | Command to display virtualization statistics
+virt-viewer | Graphical console to connect to VMs
+
+## Useful Commands  
 
 [virt-install]
 
