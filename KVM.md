@@ -51,7 +51,7 @@ Yum Installation
 Checking KVM module loaded
 `lsmod | grep -i kvm`
 
-Load the module
+Load the module  
 `modprobe kvm_intel` # For Intel CPUs  
 `modprobe kvm_amd` # For AMD CPUs
 
