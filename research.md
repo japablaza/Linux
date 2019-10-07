@@ -7,8 +7,8 @@
 - GPT: GUID Partition Table
 - GPL: General Public License
 - sha256sum: SHA-256 hashes can confirm integrity and authenticity
-- GPG: 
-- PGP: 
+- GPG:
+- PGP:
 - PXE: Pre-Boot eXecution Envioronment
 - GNOME: GNU Network Object Model Envioronment
 - GNU: GNU's Not Unix!
@@ -19,4 +19,5 @@
 - GRUB: GRand Unified Bootloader
 - RPM: Red-Hat Package Manager
 - XML: eXtensible Markup Language
-- System D: Refers to a person's ability to adapt quickly and improvise to solve problems 
+- System D: Refers to a person's ability to adapt quickly and improvise to solve problems  
+- URI: Universal Resource Identifier
