@@ -6,7 +6,7 @@
 
 ## Mount an ISO file and Copy the content
 
-- `mount -o loop file.iso /media`
+- `mount -ro loop file.iso /media`
 - `cp -a /media/. /path/to/dir`  
 
 
