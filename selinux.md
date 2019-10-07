@@ -17,9 +17,12 @@
 - `sestatus` --> SELinux status
 - `/usr/sbin/getenforce` --> SELinux mode
 
-## Disable SELinux. Reboot is needed 
+## Disable SELinux. Reboot is needed
 - `setenforce 0` --> SELinux mode from `targeted` to `permissive`
 - `echo -n 0 > /sys/fs/selinux/enforce`
 - `setenforce Permissive`
 - `vi /etc/sysconfig/selinux` --> Set SELINUX=disable
   `/etc/selinux/config` --> Symbolic Link from `/etc/sysconfig/selinux`
+
+##File Contexts
+- `/etc/selinux/targeted/contexts/files`
