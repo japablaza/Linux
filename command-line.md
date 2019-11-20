@@ -14,4 +14,7 @@ Wildcard : Short description
 $LANG:
 $LC_ALL:  
 \:  
- 
+
+## File Searches  
+- `find`  
+- `locate`  
