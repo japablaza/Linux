@@ -3,6 +3,7 @@
 Metacharacter losing its special meaning, precede it by a backslash `\`
 
 ## Wildcard  or Globbing  
+
 Wildcard | Short description  
 --- | ---  
 * | Return any number or character  
