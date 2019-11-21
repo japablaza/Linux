@@ -21,3 +21,4 @@
 - XML: eXtensible Markup Language
 - System D: Refers to a person's ability to adapt quickly and improvise to solve problems  
 - URI: Universal Resource Identifier
+- CIDR: Classless Inter-Domain Routing
