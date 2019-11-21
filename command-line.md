@@ -63,3 +63,13 @@ Metacharacter | Short Description
 `*` | Match the preceding element zero or more times  
 `^` | Match the beginning of a line.  
 `$` | Match the end of a line  
+
+## Local Documentation  
+ - `/usr/share/doc`  
+ - `man`  
+ - `whatis`  
+ - `apropos`  
+ - `/var/cache/man` ==> `whatis` and `apropos` database. Update this DB with command `/etc/cron.daily/man-db.cron`  
+ - `whatis ip` ==> `man 7 ip`
+ - `/usr/share/info`  
+ - `pinfo [COMMAND]`  
