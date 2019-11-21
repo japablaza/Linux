@@ -34,4 +34,11 @@ Wildcard | Short description
 - `grep`  
 - `grep -i [FILENAME]` ==> case-insensitive  
 - `grep -E [FILENAME]` ==> Enable the use of extended regular expression syntax  
-- `grep -v '^$' /etc/ssh/sshd_config | grep -v '^#'`
+- `grep -v '^$' /etc/ssh/sshd_config | grep -v '^#'`  
+
+## Special Characters in Regular Expressions  
+
+Metacharacter | Short Description  
+--- | ---
+`.` | Any single character  
+`[]` | Match the characters included. Use range  
