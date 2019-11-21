@@ -16,5 +16,14 @@ $LC_ALL:
 \:  
 
 ## File Searches  
-- `find`  
+
+### Find  
+- `find [DIRECTORY] -name [FILENAME]`  
+
+### Locate  
+- Documentation `/etc/cron.daily/mlocate`
+- ` updatedb`
 - `locate`  
+
+## Commands to Read Text Streams  
+- `cat`
