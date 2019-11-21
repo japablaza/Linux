@@ -35,6 +35,22 @@ Wildcard | Short description
 - `grep -i [FILENAME]` ==> case-insensitive  
 - `grep -E [FILENAME]` ==> Enable the use of extended regular expression syntax  
 - `grep -v '^$' /etc/ssh/sshd_config | grep -v '^#'`  
+- `diff`  
+- `wc`  
+
+### SED  
+- `sed 's/[FINDWORD]/[REPLACEWORDWITH]/' [FILENAME] > [OUTPUTFILE]`  
+- `sed 's/[FINDWORD]/[REPLACEWORDWITH]/g' [FILENAME] > [OUTPUTFILE]`
+
+### AWK  
+- `awk -F : '[WORD] {print $[COLUMN]}' [FILENAME]`
+
+### VI
+- `vipw` ==> `/etc/passwd`
+- `vigw` ==> `/etc/group`
+- `visudo` ==> `/etc/sudoers`  
+- `vipw -s` ==> `/etc/shadow`  
+- `vigr -s` ==> `/etc/gshadow`
 
 ## Special Characters in Regular Expressions  
 
@@ -42,3 +58,8 @@ Metacharacter | Short Description
 --- | ---
 `.` | Any single character  
 `[]` | Match the characters included. Use range  
+`?` | Match the proceding element zero or one time  
+`+` | Match the preceding element one or more times  
+`*` | Match the preceding element zero or more times  
+`^` | Match the beginning of a line.  
+`$` | Match the end of a line  
