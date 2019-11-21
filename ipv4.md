@@ -18,3 +18,9 @@ A | 10.0.0.0 - 10.255.255.255 |
 B | 172.168.16.0 - 172.168.31.255 |
 C | 192.168.0.0 - 192.168.255.255 |
 A | 127.0.0.0 - 127.255.255.255 | Loopback communication on a local host
+
+## Tools and Commands  
+- `ip route`  
+- `ifconfig`
+- `arp`  
+- `netstat`
