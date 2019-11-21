@@ -20,7 +20,10 @@ C | 192.168.0.0 - 192.168.255.255 |
 A | 127.0.0.0 - 127.255.255.255 | Loopback communication on a local host
 
 ## Tools and Commands  
-- `ip route`  
-- `ifconfig`
-- `arp`  
-- `netstat`
+
+Obsolete Command | Equivalent `ip` Command | Short Description
+--- | --- | ---
+`ifconfig` | `ip [-s] link` | Link Status, IP info and traffic stats
+ | `ip addr` |
+ `ifconfig eth0 10.0.0.22 netmask 255.0.0.0` | `ip addr add 10.0.0.22/8 dev eth0` | Assigns an IP address and Netmask to eth0
+ 
