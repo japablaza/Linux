@@ -1,9 +1,6 @@
 # Command Line Skills  
 
-## Useful command  
-
-- `alias`  
--
+Metacharacter losing its special meaning, precede it by a backslash `\`
 
 ## Wildcard  or Globbing
 ---:---
@@ -26,4 +23,11 @@ $LC_ALL:
 - `locate`  
 
 ## Commands to Read Text Streams  
-- `cat`
+- `cat`  
+- `less` and `more` ==> These are called *pagers*  
+- `head` and `tail`
+- `tail -f -n 100 [FILENAME]`  
+
+## Commands to Process Text Streams  
+- `sort`  
+- `grep`  
