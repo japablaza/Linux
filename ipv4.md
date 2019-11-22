@@ -23,7 +23,31 @@ A | 127.0.0.0 - 127.255.255.255 | Loopback communication on a local host
 
 Obsolete Command | Equivalent `ip` Command | Short Description
 --- | --- | ---
-`ifconfig` | `ip [-s] link` | Link Status, IP info and traffic stats
- | `ip addr` |
- `ifconfig eth0 10.0.0.22 netmask 255.0.0.0` | `ip addr add 10.0.0.22/8 dev eth0` | Assigns an IP address and Netmask to eth0
- 
+`ifconfig` | `ip [-s] link` or `ip addr`| Link Status, IP info and traffic stats
+`ifconfig eth0 10.0.0.22 netmask 255.0.0.0` | `ip addr add 10.0.0.22/8 dev eth0` | Assigns an IP address and Netmask to eth0
+`arp` | `if neigh` | ARP Table
+`route` or `netstat -r` | `ip route` | Routing table
+`netstat -tulpna` | `ss -tupna` | Listening and non-listening sockets
+
+## PING and TRACEROUTE
+- `ping [IP ADDR]`
+- `traceroute -n [IP ADDR]` ==> *UDP* packages
+- `traceroute -I [IP ADDR]` ==> *ICMP* packages
+- `traceroute -T [ip ADDR]` ==> *TCP* packages
+- `tracepath`
+
+## IP
+- `ip link show`
+- `ip address show`
+- `ip link show`
+- `ip address add [IP]/[Netmask] dev [NIC]`
+
+Command | Short Description
+--- | ---
+`ip link set dev [NIC] up` | Activate [NIC]
+`ip link set dev [NIC] down` | Deactivate [NIC]
+`ip addr flush dev [NIC]` | Flush IP info deom [NIC]
+`ip link set dev [NIC] txqlen N` | Length of the transmit queue `N`
+`ip link set dev [NIC] mtu N` | Maximum Transmission  Unit as `N`, in bytes
+`ip link set dev [NIC] promisc on` | Promiscuous Mode ON
+`ip klink set dev [NIC] promisc off` | Promiscuous Mode OFF
