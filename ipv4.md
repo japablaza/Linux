@@ -36,6 +36,11 @@ Obsolete Command | Equivalent `ip` Command | Short Description
 - `traceroute -T [ip ADDR]` ==> *TCP* packages
 - `tracepath`
 
+## DHCP, DNS, Network Connections
+- `dhclient`
+- `/etc/resolv.conf`
+- `ss -tuna4`
+
 ## IP
 - `ip link show`
 - `ip address show`
@@ -51,3 +56,6 @@ Command | Short Description
 `ip link set dev [NIC] mtu N` | Maximum Transmission  Unit as `N`, in bytes
 `ip link set dev [NIC] promisc on` | Promiscuous Mode ON
 `ip klink set dev [NIC] promisc off` | Promiscuous Mode OFF
+
+*ANY changes made with IP command are temporary*
+- `/etc/sysconfig/network-scripts/`
