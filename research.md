@@ -24,3 +24,5 @@
 - CIDR: Classless Inter-Domain Routing
 - RTT: Round Trip Time
 - TTL: Time-to-live
+- ARP: Address Resolution Protocol
+- MAC: Hardware Address
