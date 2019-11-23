@@ -59,3 +59,9 @@ Command | Short Description
 
 *ANY changes made with IP command are temporary*
 - `/etc/sysconfig/network-scripts/`
+
+## DNS Configure Name Resolution
+- `/etc/hosts`
+- `/etc/hostname`
+- `/etc/resolv.conf`
+- `/etc/nsswitch.conf`
