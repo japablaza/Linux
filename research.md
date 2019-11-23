@@ -26,3 +26,8 @@
 - TTL: Time-to-live
 - ARP: Address Resolution Protocol
 - MAC: Hardware Address
+- DNS: Domain Name
+- DAC: Discretionary Access Control
+- ACl: Access Control List
+- MAC: Mandatory Access Control
+- SELinux: Security-Enhanced Linux
