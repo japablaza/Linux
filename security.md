@@ -58,8 +58,14 @@ Permission | File | Directory
 | Extent format (e) | Set with the `ext4` filesystem | |
 | immutable (i) | Prevents deletion or any other kind of changes to a file | `chattr +i [FILENAME]` |
 
-## Basic Control Lists
+### Basic User and Group with UMASK
+- `umask`
+- `/etc/profile`
+- `/etc/bashrc`
+
+## Access Control Lists
 - Override and Extend basic file permissions
+
 
 ## Firewall Control
 - Block traffic ports
