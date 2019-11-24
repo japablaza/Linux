@@ -20,7 +20,11 @@ Permission | File | Directory
 
 | Position | Short Description |
 |----|----|
-|  1 |  Type of file: `-` ==> Regular file // `d` ==> Directory // `b` ==> Device // `l` ==> Symbolic Link |
+|  1 |  Type of file: |
+|  1 |  `-` ==> Regular file |
+|  1 |  `d` ==> Directory |
+|  1 |  `b` ==> Device |
+|  1 |  `l` ==> Symbolic Link |
 | 234 | Owner **rwx** |
 | 567 | Group **rwx** |
 | 890 | Other **rwx** |
