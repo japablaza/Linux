@@ -20,7 +20,6 @@ Permission | File | Directory
 
 | Position | Short Description |
 |----|----|
-|  1 |  Type of file: |
 |  1 |  `-` ==> Regular file |
 |  1 |  `d` ==> Directory |
 |  1 |  `b` ==> Device |
@@ -28,9 +27,17 @@ Permission | File | Directory
 | 234 | Owner **rwx** |
 | 567 | Group **rwx** |
 | 890 | Other **rwx** |
+| 11  | **.** Files with SELinux security context |
+| 11  | **+** Files configured with ACL permissions |
 
 **Example**
 `-rw-r--r--. 1 root root 158 Oct  9 03:18 /etc/hosts`
+
+| Special Permission | Executable File | Directory | Example |
+| --- | --- | --- | --- |
+| SUID | NEED MORE RESEARCH | | `-rwsr-xr-x.` ==> `/usr/bin/passwd`|
+| SGID | NEED MORE RESEARCH | | `---x--s--x.` ==> `/usr/bin/ssh-agent` |
+| Sticky bit | No effect | File in a directory can be renamed or removed only by their owner | `drwxrwxrwt.` ==> `/tmp` |
 
 ## Basic Control Lists
 - Override and Extend basic file permissions
