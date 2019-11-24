@@ -18,11 +18,15 @@ Permission | File | Directory
 `write (w)` | Write or change the file content | Create and remove files in a directory
 `execute (x)` | Run the file as a program | Access the files in the directory
 
-|  |  asdasd asdsadsa |  |  |  |
-|----|--------------------------------------------------------------------------------------------|---|---|---|
-|  1 |  Type of file: `-` ==> Regular file `d` ==> Directory `b` ==> Device `l` ==> Symbolic Link |  |  |  |
-| 2 | asdasdsad |  |  |  |
-| 3 | qweq |  |  |  |
+| Position | Short Description |
+|----|----|
+|  1 |  Type of file: `-` ==> Regular file // `d` ==> Directory // `b` ==> Device // `l` ==> Symbolic Link |
+| 234 | Owner **rwx** |
+| 567 | Group **rwx** |
+| 890 | Other **rwx** |
+
+**Example**
+`-rw-r--r--. 1 root root 158 Oct  9 03:18 /etc/hosts`
 
 ## Basic Control Lists
 - Override and Extend basic file permissions
