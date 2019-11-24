@@ -11,6 +11,8 @@
 - `chown`
 - `chmod`
 - `chgrp`
+- `lsattr`
+- `chattr`
 
 Permission | File | Directory
 --- | --- | ---
@@ -44,6 +46,17 @@ Permission | File | Directory
 | SUID = 4 | `chmod 4674 [FILENAME]` |
 | SGID = 2 | `chmod g+s [FILENAME]` |
 | Sticky bit = 1 | `chmod o+t [FILENAME]` |
+
+### Special Attributes
+- `lsattr`
+- `chattr`
+
+| Attribute | Short Description | Example |
+| --- | --- | --- |
+| Append only (a) | Prevents deletion and allows appending to files | `chattdr +a [FILENAME]` |
+| No dump (d) | Disallow backup od the configured file with the `dump` command | `chattr +d [FILENAME]` |
+| Extent format (e) | Set with the `ext4` filesystem | |
+| immutable (i) | Prevents deletion or any other kind of changes to a file | `chattr +i [FILENAME]` |
 
 ## Basic Control Lists
 - Override and Extend basic file permissions
