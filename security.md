@@ -18,9 +18,11 @@ Permission | File | Directory
 `write (w)` | Write or change the file content | Create and remove files in a directory
 `execute (x)` | Run the file as a program | Access the files in the directory
 
-| Position | Shot Description |
-| --- | --- |
-| 1 |   Type of file:   `-` ==> Regular file |
+|  |  asdasd asdsadsa |  |  |  |
+|----|--------------------------------------------------------------------------------------------|---|---|---|
+|  1 |  Type of file: `-` ==> Regular file `d` ==> Directory `b` ==> Device `l` ==> Symbolic Link |  |  |  |
+| 2 | asdasdsad |  |  |  |
+| 3 | qweq |  |  |  |
 
 ## Basic Control Lists
 - Override and Extend basic file permissions
