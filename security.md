@@ -20,7 +20,7 @@ Permission | File | Directory
 
 | Position | Shot Description |
 | --- | --- |
-| 1 | Type of file:  `-` ==> Regular file 
+| 1 | Type of file:   `-` ==> Regular file 
 
 ## Basic Control Lists
 - Override and Extend basic file permissions
