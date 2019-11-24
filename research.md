@@ -1,4 +1,4 @@
-[Research]
+# Research
 
 - BIOS: Basic In Put Out Put System
 - UEFI: Unified Extensible Firmware Interface
@@ -31,3 +31,5 @@
 - ACl: Access Control List
 - MAC: Mandatory Access Control
 - SELinux: Security-Enhanced Linux
+- SUID: Super User ID
+- SGID: Super Group ID
