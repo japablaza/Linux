@@ -39,6 +39,12 @@ Permission | File | Directory
 | SGID | NEED MORE RESEARCH | | `---x--s--x.` ==> `/usr/bin/ssh-agent` |
 | Sticky bit | No effect | File in a directory can be renamed or removed only by their owner | `drwxrwxrwt.` ==> `/tmp` |
 
+| CHMOD | Example |
+| --- | --- |
+| SUID = 4 | `chmod 4674 [FILENAME]` |
+| SGID = 2 | `chmod g+s [FILENAME]` |
+| Sticky bit = 1 | `chmod o+t [FILENAME]` |
+
 ## Basic Control Lists
 - Override and Extend basic file permissions
 
