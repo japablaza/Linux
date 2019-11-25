@@ -49,4 +49,8 @@
 ## C1
 - Create an account with gibhub. Real good!
 - Links need to be reviewed (Extra dash and space)
-- 
+- On-premises ==> Server
+- IaaS = Infrastructure as a Service ==> Managing VMs and Applications level
+- PaaS = Platform as a Service ==> Managing Application level
+- SaaS = Software as a Service ==> Access to the Application level
+- SONiC: Software for Open Networking in the Cloud
