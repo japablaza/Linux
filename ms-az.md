@@ -54,3 +54,8 @@
 - PaaS = Platform as a Service ==> Managing Application level
 - SaaS = Software as a Service ==> Access to the Application level
 - SONiC: Software for Open Networking in the Cloud
+- Git and Maven
+
+## C2
+ - Install CLI 2.0
+ -
