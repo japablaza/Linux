@@ -57,5 +57,9 @@
 - Git and Maven
 
 ## C2
- - Install CLI 2.0
- -
+- Install CLI 2.0
+- Page 10: Second paragraph in point 4 and 7  with two comas
+- Page 14: `sudo apt-get update && sudo apt-get install -y lamp-server^`
+-
+
+## C3s
