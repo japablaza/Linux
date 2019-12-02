@@ -62,4 +62,8 @@
 - Page 14: `sudo apt-get update && sudo apt-get install -y lamp-server^`
 -
 
-## C3s
+## C3
+- App Service Plan  
+- Create the app-level credential in the repository is  missing
+- Viewing Diagnostic logs: Application Logging (Filesystem). WHAT is the level you recommend for the exercise??
+- Swap menu is different
