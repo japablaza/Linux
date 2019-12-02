@@ -67,3 +67,14 @@
 - Create the app-level credential in the repository is  missing
 - Viewing Diagnostic logs: Application Logging (Filesystem). WHAT is the level you recommend for the exercise??
 - Swap menu is different
+
+## C4
+- Managed disks
+- Access to premium SSD disks: `D2S_V3`, `Fs`, `Gs`, `Ls`
+- Access to standard SSD or HDD disks: `D`, `A`, `F`, and `M`
+- I suggest to add link where you can find more information about disk in Azure
+- Table storage was not clear. This is a point that might need more work to explain for beginners.
+- `QueueService` has been renamed to `QueueServiceClient`. https://github.com/MicrosoftDocs/azure-docs/issues/42228
+- Script `storage_queue_demo.py` is not working.
+- CLI 2.0 local: Install extra packages like `jq`
+- I would recommend to use `pip3` on Linux distros since the default is `Python2`
