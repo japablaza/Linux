@@ -78,3 +78,7 @@
 - Script `storage_queue_demo.py` is not working.
 - CLI 2.0 local: Install extra packages like `jq`
 - I would recommend to use `pip3` on Linux distros since the default is `Python2`
+
+## C5
+- Typo in first paragraph 5.1.2.
+- The TRY NOW in page 13 should mention the Jump-Box and Web VM
