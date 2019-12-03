@@ -100,6 +100,10 @@ Permission | File | Directory
 - `<package_pattern>`: -p (protocol) and --dport (destination port)
 - `<what_to_do>`: DROP, REJECT, ACCEPT (-A INPUT/OUTPUT/FORWARD)
 
+### FIREWALLD
+- `firewall-cmd --get-default-zone`
+- `firewall-cmd --set-default-zone=<zone>`
+
 # Secure Shell Server
 - Configure key-based authentication for SSH
 
