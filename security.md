@@ -71,9 +71,34 @@ Permission | File | Directory
 - Block traffic ports
 - `firewall-config`
 - `firewall-cmd`
-- `iptables`
-
+- `iptables` service ==> Chain of filter rules
+- `firewalld` deamon ==> Zone-based
 - `yum install firewall-config` ==> GUI-based firewall
+- `/etc/services`
+
+| Port | Short Description |
+| --- | --- |
+| 20, 21 | FTP |
+| 22 | SSH (Secure Shell) |
+| 23 | Telnet |
+| 25 | SMTP (Simple Mail Transfer Protocol) Postfix, Sendmail |
+| 53 | DNS (Domain Name Service server) |
+| 80 | Hypertext Transfer Protocol (HTTP) |
+| 88 | Kerberos |
+| 110 | Post Office Protocol (POP3) |
+| 139 | Network Basic Input/Output System (NetBIOS)|
+| 143 | Internet Mail Access Protocol (IMAP) |
+| 443 | HTTP secure |
+
+### IPTABLES
+
+- `iptables -t tabletype <action_direction> <package_pattern> -j <what_to_do>`
+- `tabletype`: filter or NAT. Default filter
+- `<action_direction>`: --append(-A), --delete(-D), --list(-L), --flush(-F)
+- `<action_direction>`: INPUT, OUTPUT, FORWARD. Direction of the chain
+- `<package_pattern>`: -s (source IP address), -d (destination IP address)
+- `<package_pattern>`: -p (protocol) and --dport (destination port)
+- `<what_to_do>`: DROP, REJECT, ACCEPT (-A INPUT/OUTPUT/FORWARD)
 
 # Secure Shell Server
 - Configure key-based authentication for SSH
