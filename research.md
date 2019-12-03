@@ -36,4 +36,6 @@
 - NAT: Network Address Translation
 - TCP: Transmission Control Protocol
 - UDP: User Datagram Protocol
-- SCTP: Stream Control Transmission Protocol 
+- SCTP: Stream Control Transmission Protocol
+- SAS: Shared Access Signature
+- 
