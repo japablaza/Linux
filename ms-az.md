@@ -82,3 +82,10 @@
 ## C5
 - Typo in first paragraph 5.1.2.
 - The TRY NOW in page 13 should mention the Jump-Box and Web VM
+
+## C6
+- Role-based access control (RBAC)
+- The command `az resource list --tag workload=development` did not work
+- Page 11 there is a typo in the title, end of 6.2.2
+- Page 12 The link has an space before Azure
+- Honest at the end of chapter 6??
