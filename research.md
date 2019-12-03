@@ -33,3 +33,7 @@
 - SELinux: Security-Enhanced Linux
 - SUID: Super User ID
 - SGID: Super Group ID
+- NAT: Network Address Translation
+- TCP: Transmission Control Protocol
+- UDP: User Datagram Protocol
+- SCTP: Stream Control Transmission Protocol 
