@@ -89,3 +89,8 @@
 - Page 11 there is a typo in the title, end of 6.2.2
 - Page 12 The link has an space before Azure
 - Honest at the end of chapter 6??
+
+## C7
+- Page 2 Typo in the first paragraph
+- Still does not materialize the creation of a load balancer in this chapter
+- 
