@@ -93,4 +93,5 @@
 ## C7
 - Page 2 Typo in the first paragraph
 - Still does not materialize the creation of a load balancer in this chapter
-- 
+- Availability Set
+- Availability Zone
