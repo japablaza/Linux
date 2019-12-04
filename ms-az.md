@@ -95,3 +95,10 @@
 - Still does not materialize the creation of a load balancer in this chapter
 - Availability Set
 - Availability Zone
+
+## C8 Load-balancing Applications
+- Load-balancer: Layer 4 - Network traffic (Transport layer)
+- Application Gateway: Layer 7 - Application data (Application  layer)
+- Health probe: Port-based (TCP port 80) // HTTP Path-based (code 200)
+- Path-based: Use Interval (every 15 secs) and Threshold (after two intervals)
+- Session affinity mode
