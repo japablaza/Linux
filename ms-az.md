@@ -102,3 +102,4 @@
 - Health probe: Port-based (TCP port 80) // HTTP Path-based (code 200)
 - Path-based: Use Interval (every 15 secs) and Threshold (after two intervals)
 - Session affinity mode
+- Page 17 show the ssh switch that allow connection to VM1
