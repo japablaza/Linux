@@ -108,4 +108,7 @@
 - Resizing VM Vertically and Horizontally
 - VM Scale Sets
 - How do you prevent DDoS attack and auto-scale?
--
+
+## C10  Global Cosmos DB
+- SLQ and noSQL
+- 
