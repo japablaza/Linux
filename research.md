@@ -40,4 +40,13 @@
 - SAS: Shared Access Signature
 - ODBC: Open Database Connectivity
 - SDK: Software Development Kit
+- A: IPv4 host records, to point requests
+- AAAA: IPv6 A record for IP version 6
+- CNAME: Canonical name, or alias
+- MX: Mail exchange records to route email traffic to email server
+- NS: Name server records
+- PTR: Pointer record. Reverse DNS queries to map IP address to hostnames
+- SOA: Start-of-authority records
+- SRV: Network service discovery
+- TXT: Text record, such as for Sender Protection Framework (SPF) or DomainKeys Identified Mail (DKIM)
 - 
