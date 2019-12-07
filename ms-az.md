@@ -111,4 +111,10 @@
 
 ## C10  Global Cosmos DB
 - SLQ and noSQL
+
+## C11 Network Traffic and Routing
+- Figure 11.1 should reflect the traffic and sequence. Straight from Internet to the VM does not make sense with the Azure Traffic Manager. Missing the steps number in the figure.
+- DNS and Recursion.
+- Anycast networks
+- Azure Front Door
 - 
