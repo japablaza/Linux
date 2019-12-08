@@ -117,4 +117,5 @@
 - DNS and Recursion.
 - Anycast networks
 - Azure Front Door
-- 
+- Geographic routing method
+- Priority routing method
