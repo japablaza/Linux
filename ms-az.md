@@ -125,3 +125,7 @@
 - VM Diagnostics extension
 - Sinks
 - Wireshark, Fiddler, and Microsoft Message Analyzer
+
+## C13 Backup, Recovery, and Replication
+- Recovery point objective (RPO).
+- Recovery Time Objective (RTO)
