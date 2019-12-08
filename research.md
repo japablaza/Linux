@@ -51,4 +51,6 @@
 - TXT: Text record, such as for Sender Protection Framework (SPF) or DomainKeys Identified Mail (DKIM)
 - DSC: Desired State Configurtion
 - ETW: Event Tracing for Windows
-- 
+- RPO: Recovery Point Objective
+- RTO: Recovery Time Objective
+-
