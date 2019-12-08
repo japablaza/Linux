@@ -49,4 +49,6 @@
 - SOA: Start-of-authority records
 - SRV: Network service discovery
 - TXT: Text record, such as for Sender Protection Framework (SPF) or DomainKeys Identified Mail (DKIM)
+- DSC: Desired State Configurtion
+- ETW: Event Tracing for Windows
 - 
