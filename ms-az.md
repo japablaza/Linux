@@ -119,3 +119,9 @@
 - Azure Front Door
 - Geographic routing method
 - Priority routing method
+
+## C12 Monitoring and Troubleshooting
+- Performance metrics and alerts
+- VM Diagnostics extension
+- Sinks
+- Wireshark, Fiddler, and Microsoft Message Analyzer
