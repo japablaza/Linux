@@ -53,4 +53,5 @@
 - ETW: Event Tracing for Windows
 - RPO: Recovery Point Objective
 - RTO: Recovery Time Objective
--
+- HSM: Hardware Security Module
+- FIPS: Federal Information Processing Standard (FIPS)
