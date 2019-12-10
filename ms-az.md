@@ -129,3 +129,4 @@
 ## C13 Backup, Recovery, and Replication
 - Recovery point objective (RPO).
 - Recovery Time Objective (RTO)
+- Recovery VM are quite common, specially when you have a file system issue or Windows is not booting after Update ;)
