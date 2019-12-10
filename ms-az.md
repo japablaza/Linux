@@ -130,3 +130,16 @@
 - Recovery point objective (RPO).
 - Recovery Time Objective (RTO)
 - Recovery VM are quite common, specially when you have a file system issue or Windows is not booting after Update ;)
+
+## C14 Data Encryption
+- Page 4
+
+## C15 Securing information with Azure Key Vault
+- Hardware Security Module (HSM)
+- Software-protected
+- HSM-Protected
+- Federal Information Processing Standard (FIPS)
+- Page 6
+
+## C16 Azure Security Center and Updates
+- 
