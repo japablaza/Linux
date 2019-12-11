@@ -55,3 +55,5 @@
 - RTO: Recovery Time Objective
 - HSM: Hardware Security Module
 - FIPS: Federal Information Processing Standard (FIPS)
+- MLS: Multi Level Security
+- 
