@@ -8,6 +8,23 @@
 > SELinux (Security Enhanced Linux) is a Linux Kernel Security modeule that allows administrator and user more control over access controls. It allows access based on SELinux pilicy rules
 > SELinux policy rules specify how processes and users interact with each other as well as how processes and users interact with files.
 
+## SELinux security model
+- Subject: Process
+- Objects: File, Device, a socket
+- Actions : What can you do with the Object
+- Context to Objects: Context is a label
+
+## SELinux Label
+- User context: `_u`
+- Role context: `_r`
+- Type context: `_t`
+- Sensitivity context: `s0-s0`
+- Category Set: `c0.c1023`
+- `/etc/selinux/targeted/contexts/files`
+- `/sys/fs/selinux/boolean`
+- `getsebool -a`
+- `semanage boolean -l`
+
 ## SELinux modes
 - Enforcing: SELinux allows access based on SELinux policy rules.
 - Permissive: SELinux only logs actions that would have been denied if running in enforcing mode.
@@ -23,6 +40,3 @@
 - `setenforce Permissive`
 - `vi /etc/sysconfig/selinux` --> Set SELINUX=disable
   `/etc/selinux/config` --> Symbolic Link from `/etc/sysconfig/selinux`
-
-##File Contexts
-- `/etc/selinux/targeted/contexts/files`
