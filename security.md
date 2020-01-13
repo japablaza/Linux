@@ -47,6 +47,12 @@ Permission | File | Directory
 | SGID = 2 | `chmod g+s [FILENAME]` |
 | Sticky bit = 1 | `chmod o+t [FILENAME]` |
 
+**Find sticky bits**
+`find / -type d -perm -1000`
+`find . -perm 2000`
+`find . -perm 4000`
+`find / -perm 6000`
+
 ### Special Attributes
 - `lsattr`
 - `chattr`

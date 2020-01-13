@@ -17,6 +17,8 @@ Wildcard | Short description
 
 ### Find  
 - `find [DIRECTORY] -name [FILENAME]`  
+- `find / -type d -perm -1000`
+- `find .-perm -2000`
 
 ### Locate  
 - Documentation `/etc/cron.daily/mlocate`
@@ -73,3 +75,7 @@ Metacharacter | Short Description
  - `whatis ip` ==> `man 7 ip`
  - `/usr/share/info`  
  - `pinfo [COMMAND]`  
+
+## Cool Commands
+- `wall` --> Send a message to all the users connected to the system
+- `echo TEXTHERE | passwd --stdin USUARIO`
