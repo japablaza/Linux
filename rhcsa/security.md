@@ -9,8 +9,16 @@
 
 ### Special permissions
 - `SUID`: Super User ID
+Example: `ls -l /usr/bin/passwd`
+`-rwsr-xr-x. 1 root root` Can be executed by other users with the authority of Root
+
 - `SGID`: Super Group ID
+Example: `ls -l /usr/bin/ssh-agent`
+`---x--s--x. 1 root nobody`
+
 - `Stiky permissions bits`
+Example: `ls -l /tmp`
+`drwxrwxrwt. 22 root root`  
 
 ## Access Control Lists
 
