@@ -2,6 +2,7 @@
 - `lsmod | grep kvm` # KVM kernel module  
 - `cat /proc/cpuinfo | grep svm or vmx` # Seach HV flag  
 - `modprobe kvm_intel` # Load the kernel with intel KVM module (kvm_amd for orther cpu)  
+- `restorecon <file>` #Based on directory 
 
 ## Virsh and Virt-* Commands
 - `virsh shutdown vm-name` 
@@ -96,3 +97,5 @@
                         libguestfs-tools 
                         libguestfa-tools-c
 
+# SSH Client
+- `/etc/ssh/ssh_config` # SSH client config file 
