@@ -27,6 +27,14 @@
 
 ## File Searches
 - `find /bin -name name.conf`: Search for name.conf in the directory /bin
+- `locate` updates once a day or running `updatedb`. `/etc/cron.daily/mlocate`
+
+## Process Text Streams
+- `sort`
+- `grep -i`: case-insensitive. `grep -v` reverses the matching logic
+
+## Regular Expression
+- 
 
 ## Directory and Environment $PATH
 - Absolute paths: Complete directory structure
@@ -45,3 +53,6 @@
 - `cp -a`: support recursive changes and preserves all file attributes
 - `ln`: Creates hard and soft links. Hard links are directory entries that point to the same inode. Soft links serves a s redirect
 - `mkdir -p /dir01/dir02/dir03`: Creates a series of directories 
+- `file *`: Determine the type file (text, executable, or data/binary)
+- `type`: Describes the command. Example `type cp` 
+- `less` can read text files compressed in gzip format
