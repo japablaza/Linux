@@ -34,7 +34,13 @@
 - `grep -i`: case-insensitive. `grep -v` reverses the matching logic
 
 ## Regular Expression
-- 
+- `.` single character.
+- `[]` match character.
+- `?` match the preceding character zero or once.
+- `+` match the preceding character one or more times.
+- `*` match the preceding character zero or more times.
+- `^` match the beginning of the line.
+- `$` match the end of the line.
 
 ## Directory and Environment $PATH
 - Absolute paths: Complete directory structure
@@ -46,6 +52,19 @@
 - `~/.profile`
 - UID 0 corresponds to the root user
 
+## Local Online Documentation
+- `man`
+- `whatis COMMAND`
+- `apropos`
+- `/etc/cron.daily/man-db.cron`
+- `ls /usr/share/info`
+- `info COMMAND`
+- `pinfo COMMAND`
+- `/usr/share/doc`
+
+## IPv4 Networks
+- 
+
 ## Commands
 - `pwd`: Print Working Directory 
 - `~`: The tilde represent the user home directory
@@ -56,5 +75,15 @@
 - `file *`: Determine the type file (text, executable, or data/binary)
 - `type`: Describes the command. Example `type cp` 
 - `less` can read text files compressed in gzip format
-- `grep -v '^$' /etc/nsswitch.conf | grep -v '^#'` Select only the lines from file are not blank and without a comment
-- `grep -v -e '^$' -e '^#' /etc/nsswitch.conf` Same resoult ^^
+- `grep -v '^$' FILE | grep -v '^#'` Select only the lines from file are not blank and without a comment
+- `grep -v -e '^$' -e '^#' FILE` Same resoult ^^
+- `awk -F : '/USERNAME/ {print $7}' FILE`
+
+## VIM
+- `vimtutor`
+- `visudo` opens `/etc/sudoers`
+- `vipw` opens `/etc/passwd`
+- `vigr` opens `/etc/group`
+- `vipw -s` opens `/etc/shadow`
+- `vigr -s` opens `/etc/gshadow`
+
