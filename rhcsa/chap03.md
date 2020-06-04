@@ -63,6 +63,29 @@
 - `/usr/share/doc`
 
 ## IPv4 Networks
+- RTT: Round trip time
+- TTL: Time-to-Live
+- CIDR: Classless Inter-Domain Routing
+- `ip -s link`: shows the link status with Rx and Tx
+- `ip addr`: shows all the interfaces IP information 
+- `ip addr add IP/CIDR dev NAME`: Assigns an IP address and netmask to NAME
+- `ip route`: shows the routing table
+- `ss -tupna`: Shows all listening and non-listening sockets and it program
+- `traceroute` relies on UDP probes packets. Option `-I` or `-T` enable ICMP or TCP probe packets
+- `ip link set dev NAME up`: Device UP.
+- `ip link set dev NAME down`: Device DOWN.
+- `ip addr flush dev NAME`: Removes all IP addresses.
+- `ip link set dev NAME txqlen N`: Changes the length of the transmit queue.
+- `ip link set dev NAME mtu N`: Sets the maximum transmission unit as N, in bytes.
+- `ip link set dev NAME promisc on`: Activates promiscuous mode.
+- `ip neigh`: Displays a table of a hardware and IP addresses.
+- `dhclient INTERFACE`
+- `ss -tuna4`: Displays networks connections
+
+## Network Configuration Files
+- `systemctl status network`
+- `nmcli dev status`
+- `/etc/sysconfig/network-scripts`
 - 
 
 ## Commands
@@ -78,6 +101,9 @@
 - `grep -v '^$' FILE | grep -v '^#'` Select only the lines from file are not blank and without a comment
 - `grep -v -e '^$' -e '^#' FILE` Same resoult ^^
 - `awk -F : '/USERNAME/ {print $7}' FILE`
+- `ping`
+- `traceroute`
+- `tracepath`
 
 ## VIM
 - `vimtutor`
