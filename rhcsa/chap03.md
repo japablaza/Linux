@@ -56,3 +56,5 @@
 - `file *`: Determine the type file (text, executable, or data/binary)
 - `type`: Describes the command. Example `type cp` 
 - `less` can read text files compressed in gzip format
+- `grep -v '^$' /etc/nsswitch.conf | grep -v '^#'` Select only the lines from file are not blank and without a comment
+- `grep -v -e '^$' -e '^#' /etc/nsswitch.conf` Same resoult ^^
