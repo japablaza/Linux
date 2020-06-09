@@ -81,12 +81,24 @@
 - `ip neigh`: Displays a table of a hardware and IP addresses.
 - `dhclient INTERFACE`
 - `ss -tuna4`: Displays networks connections
+- `nmcli dev status`
+- `nmtui`: Text-based graphical tool
+- `nm-connection-editor`: GUI
+- `nmcli con show`
+- `nmcli con reload`
+- `nmcli con add con-name 'NAME' type ethernet ifname eth0`
+- `nmcli con mod 'NAME' ipv4.addresses 'IP-ADDRESS/CIDR`
 
 ## Network Configuration Files
 - `systemctl status network`
-- `nmcli dev status`
 - `/etc/sysconfig/network-scripts`
-- 
+- `systemctl status NetworkManager`
+
+## Name Resolution
+- `/etc/hostname`
+- `/etc/resolv.conf`: Location of DNS servers
+- `/etc/hosts`: Static DB of hostnames/FQDNs and IPs
+- `/etc/nsswitch.conf`: DB search priorities
 
 ## Commands
 - `pwd`: Print Working Directory 
