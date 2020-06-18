@@ -1,0 +1,10 @@
+# Security Options
+
+## Firewall
+- `yum install firewall-config`
+
+## Acronyms
+- DAC: Discretionary Access Control
+- ACL: Access Control List
+- MAC: Mandatory Access Control --> SELinux
+- SELinux: Security-Enhanced
