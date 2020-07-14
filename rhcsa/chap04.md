@@ -1,8 +1,21 @@
 # Security Options
-
+p25
 ## Firewall
 - `yum install firewall-config` ==> Graphical utility.
 - `yum install firewall-cmd` ==> Command tool.
+- The kernel comes with the netfilter system: packetfiltering, network address translation, and load balancing
+- The `iptables` tools comes with services to manage the firewall rules: `iptables servie` and `firewall deamon` 
+- List of services, ports, and protocols `/etc/services`
+
+### IPTABLES
+- `iptables -t tabletype <action_direction> <packet_pattern> -j <what_to_do>`
+- `t tabletype` : *filter* or *nat*. The default is filter.
+- `action_direction`: *-A (--append)*, *-D (--delete)*, *-L (--list)*, *-F (--flush)*
+- `action_direction`: *INPUT*, *OUTPUT*, *FORWARD*
+- `packet_pattern`: Source *-s ip_address*, Destination *-d ip_address*
+- `packet_pattern`: Protocol *-p TCO/UDP*, Destination port *--dport {Number}*
+- `what_to_do`: *DROP*, *REJECT*, *ACCEPT*
+- `what_to_do`: Accept *-A INPUT/OUTPUT/FORWARD*
 
 ## SELinux
 - `enforcing`, `permissive`, `disable`
@@ -53,9 +66,17 @@
 - `setfacl -b /FILE` ==> Removes all ACL entries
 - `setfacl -m o:- /FILE` Removes permissions for others
 
+## NFS Shares and ACLs
+- `nfs4-acl-tools` package
+- `nfs4_getfacl` 
+
 ## Acronyms
 - DAC: Discretionary Access Control
 - ACL: Access Control List
 - MAC: Mandatory Access Control --> SELinux
 - SELinux: Security-Enhanced
 - PAM: Pluggable Authentication Module
+- NAT: Network address translation
+- TCP: Transmission Control Protocol
+- UDP: User Datagram Protocol
+- SCTP: Stream Control Transmission
