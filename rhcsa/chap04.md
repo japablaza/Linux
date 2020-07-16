@@ -1,13 +1,24 @@
 # Security Options
-p25
+p40
 ## Firewall
+- In a zone-based firewall, networks and interfaces are grouped into zones
 - `yum install firewall-config` ==> Graphical utility.
 - `yum install firewall-cmd` ==> Command tool.
-- The kernel comes with the netfilter system: packetfiltering, network address translation, and load balancing
-- The `iptables` tools comes with services to manage the firewall rules: `iptables servie` and `firewall deamon` 
-- List of services, ports, and protocols `/etc/services`
+- The kernel comes with the netfilter system: packet filtering, network address translation, and load balancing.
+- The `iptables` tools comes with services to manage the firewall rules: `iptables service` and `firewall deamon` 
+- List of services, ports, and protocols `/etc/services`.
+- `firewall-cmd --zone=<name> --add-service=http --permanent`
+- `firewall-cmd --reload`
+
+### Securing SSH with Key-Based Authentication
+- `/etc/ssh` ==> Local configuration and other keys.
+- *600*: Is the permission for a private key.
+- *644*: Is the permission for a public key.
+- *700*: Is the permission for user directory ~/.ssh.
 
 ### IPTABLES
+- `yum install itables-services`
+- `/etc/sysconfig/iptables` ==> Firewall rules
 - `iptables -t tabletype <action_direction> <packet_pattern> -j <what_to_do>`
 - `t tabletype` : *filter* or *nat*. The default is filter.
 - `action_direction`: *-A (--append)*, *-D (--delete)*, *-L (--list)*, *-F (--flush)*
@@ -18,7 +29,14 @@ p25
 - `what_to_do`: Accept *-A INPUT/OUTPUT/FORWARD*
 
 ## SELinux
+- The SELinux security model is based ons *subject*, *objects*, and *actions*.
+- The Subject is a process.
+- The Object is a file, a device, a socket, or any resource that can be accessed by a subject.
+- The Action is what may be done by the *subject* to the *object*.
+- SELinux assigns different contexts  to objects. 
+- The Context is just a label 
 - `enforcing`, `permissive`, `disable`
+- `/etc/selinux/config` ==> SELINUX configuration variable.
 
 ## Basic File Permissions
 - `umask`, `chmod`, `chwon`, and `chgrp`
@@ -30,7 +48,7 @@ p25
 - `find / -type d -perm /1000` ==> Finds the directories with sticky bit
 - `Add the `-exec ls -l '{}' \;` to see the permissions
 
-## File Permissions and Ownership
+### File Permissions and Ownership
 - `-rwxr-xr-x.` or 1234567890 position 
 - First position is the type of file: `-` regular file, `d` directory, `b` device, and `l` symbolic link. 
 - `SUID` the user can execute the file for himself but not for others. `ls -lZ /usr/bin/passwr`.
@@ -38,7 +56,7 @@ p25
 - Sticky bit keeps file protected and only the owner can delete them. `ls -ld /tmp`.
 - Write permission on directory might overwrite write permission on files. `vi:w!` -->  overwrite file.
 
-## Change Permissions and Ownership
+### Change Permissions and Ownership
 - `chmod`, `chown`, and `chgrp`.
 - Numeric bit for `SUID`= 4, `SGID`= 2, and Stiky bit = 1
 - `chmod 4664 my_file` ==> `SUID` bit
@@ -57,7 +75,7 @@ p25
 - You need to mount the appropriate filesystem with the `acl` option. 
 - The directory in the filesystem needs execute permissions.
 - ACLs is supportted on `ext4`, `xfs`, and `NFS` version 4.
-- `tune2fs -l /dev/sdaX` will show you the `acl` option.  `Tune2fs` works on `ex2/ext3/ext4` only
+- `tune2fs -l /dev/sdaX` will show you the `acl` option.  `Tune2fs` works on `ex2/ext3/ext4` only.
 - `mount -o remount -o acl /DIRECTOY` will enable `acl`.
 - `getfacl FILE`
 - `setfacl -m u:USER:rwx /FILE` ==> Set the permission `rwx`
@@ -67,7 +85,7 @@ p25
 - `setfacl -m o:- /FILE` Removes permissions for others
 
 ## NFS Shares and ACLs
-- `nfs4-acl-tools` package
+- `nfs4-acl-tools` package.
 - `nfs4_getfacl` 
 
 ## Acronyms
@@ -79,4 +97,4 @@ p25
 - NAT: Network address translation
 - TCP: Transmission Control Protocol
 - UDP: User Datagram Protocol
-- SCTP: Stream Control Transmission
+- SCTP: Stream Control Transmission Protocol
