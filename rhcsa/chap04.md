@@ -35,8 +35,33 @@ p40
 - The Action is what may be done by the *subject* to the *object*.
 - SELinux assigns different contexts  to objects. 
 - The Context is just a label 
+- `system-config-selinux` ==> SELinux Administrartion tool
+- `selinux-policy-mls` ==> MLS package
 - `enforcing`, `permissive`, `disable`
 - `/etc/selinux/config` ==> SELINUX configuration variable.
+- `/etc/selinux/targeted/setrans.conf` ==> Multi-Category Securitytranslation table
+- `getenforce` ==>Current SELinux status
+- `sestatus` ==> Provide more information about SELinux configuration
+- `setenforce` ==> Change the current SELinux status and changes the `/sys/fs/selinux/enforce` boolean
+- `yum provides /usr/sbin/semanae` shows the repo and package
+- `semanage login -a -s user_u <USER>` ==> Adds USER to the iser_c context 
+- `semanage login -d <USER>` ==> Delete the user from user_u list
+- You need to login again to see your new context. You can use `id -Z` to check you context
+- `semanage login -m -S tergeted -s "user_u" -r s0 ___default___` ==> Changes to future default users
+- `semanage login -m -S targeted -s "unconfined_u" - r s0-s0:c0.c1023 ___default__` Reverses the previous command 
+- `/sys/fs/selinux/booleans` ==> Use `getsebool` or `setsebool` to modify these switches. Add `-P` to survive a system reboot
+- `getsebool -a` ==> Full list of available booleans
+- `semanage boolean -l` ==> More information on each boolean
+- `restorecon` and `chcon` will change the file contexts.
+- `semanage fcontext -l ` Lists all the default file context
+- `(/.*)?` Regular expression
+- `semanage fcontext -a -t public_content_t '/DIR(/.*)?'` Assigns a default type context of `public_content_t to the /DIR directory
+- `restorecon -RF /DIR
+
+### SELinux Audits
+- `auserach -m avc -c sudo`
+- ` sealert -a /var/log/audit/auditlog
+
 
 ## Basic File Permissions
 - `umask`, `chmod`, `chwon`, and `chgrp`
@@ -98,3 +123,4 @@ p40
 - TCP: Transmission Control Protocol
 - UDP: User Datagram Protocol
 - SCTP: Stream Control Transmission Protocol
+- AVC: Access Vector Cache
