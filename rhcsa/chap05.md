@@ -15,3 +15,6 @@
 - GTP: GUID Partition Table
 - MBR: Master Boot Record
 - GRUB2: GRand Unified Bootloader version 2
+
+
+p6
