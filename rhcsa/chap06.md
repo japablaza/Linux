@@ -1,6 +1,6 @@
 # Filesystem
 
-p20 
+p29 
 
 ## Partition Management
 - `fdisk` or `parted` to create an MBR-style partition.
@@ -18,8 +18,28 @@ p20
 - `parted` writes changes immediately. 
 - You can change the partition type with the `set` option.
 
-## Standard Formatting and Jurnaling
-- 
+## Swap Partition
+- Using fdisk or parted select the type of partition, file system, and size.
+- Format the swap partition with `mkswap /dev/vdX#`
+- Activate the swap partition with `swapon /dev/vdX#`
+
+## Standard Formatting and Journaling
+- `mkfs -t xfs /dev/sdX#` 
+- `mkfs.xfs /dev/sdX#`
+
+## Filesystem Check Commands
+- `fdck`
+- `e2fsck`
+- `dumpe2fs -h /dev/vdX# | grep features`
+- `ls -i` --> Check the inode
+
+## Filesystems and Directories
+- https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+- Mounted directories  == Volumes
+- `/proc` and `/sys` directoriesare filled only during the boot process
+
+## Logical Volume Management
+-
 
 ## Create and Attach a New Disk with virsh
 
@@ -52,3 +72,8 @@ virsh attach-disk {VM-name} \
 - MBR: Master Boot Record
 - GPT: GUID Partition Table
 - HSFS: High Sierra File System --> ISO 9660
+- FHS: Filesystem Hierarchy Standard
+- LVM: Logical Volume Manager
+- PVs: Physical Volumes
+- VGs: Volume Groups
+- PEs: Physical Extents
