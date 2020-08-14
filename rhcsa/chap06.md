@@ -18,6 +18,37 @@ p20
 - `parted` writes changes immediately. 
 - You can change the partition type with the `set` option.
 
+## Standard Formatting and Jurnaling
+- 
+
+## Create and Attach a New Disk with virsh
+
+- Create a new virtual disk
+```
+qemu-img create -f raw /var/lib/libvirt/images{new-disk-image} {size}
+```
+
+```
+dd if =/dev/zro of={name-disk-image} bs=1M count=5120 status=progress
+```
+
+- Attach a new disk permanently
+```
+virsh attach-disk {VM-Name} \
+--source /var/lib/libvirt/images/{new-disk-image}
+--target vdX
+--persistent
+```
+
+- Attach a new disk temporarily
+```
+virsh attach-disk {VM-name} \
+--source /var/lib/libvirt/imges/{new-disk-image}
+-- target vdX
+-- cache none
+```
+
 ## Acronyms
 - MBR: Master Boot Record
 - GPT: GUID Partition Table
+- HSFS: High Sierra File System --> ISO 9660
