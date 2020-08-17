@@ -1,6 +1,6 @@
 # Filesystem
 
-p29 
+p31 
 
 ## Partition Management
 - `fdisk` or `parted` to create an MBR-style partition.
@@ -39,7 +39,12 @@ p29
 - `/proc` and `/sys` directoriesare filled only during the boot process
 
 ## Logical Volume Management
--
+- `pvcreate {/dev/vdX#} {/dev/vdX#}`
+- `pvdisplay`
+- `vgcreate {GROUP_NAME} {/dev/vdX#} {/dev/vdX#}`
+- `vgdisplay`
+- `vgextend {GROUP_NAME} {/dev/vdX#} {/dev/vdX#}`
+- `lvcreate -L {+MG} {GROUP_NAME} - {NAME_LV}`
 
 ## Create and Attach a New Disk with virsh
 
