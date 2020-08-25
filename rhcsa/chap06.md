@@ -32,6 +32,16 @@ p31
 - `e2fsck`
 - `dumpe2fs -h /dev/vdX# | grep features`
 - `ls -i` --> Check the inode
+- `xfs_admin -u /dev/mapper` --> Displays the UUID
+- `mount -o remount,ro {PATH\DIR}`
+- `mount -o remount,acl {PATH\DEVICE} {PATH\DIR}`
+- `mount -o loop {ISO-FILE} {PATH\DIR}`
+
+## Filesystem Mount Options
+- `/etc/fstab`
+
+## Virtual Filesystems
+- `/etc/mtab`
 
 ## Filesystems and Directories
 - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
@@ -51,6 +61,7 @@ p31
 - Create a new virtual disk
 ```
 qemu-img create -f raw /var/lib/libvirt/images{new-disk-image} {size}
+qemu-img create -f qcow2 /var/lib/libvirst/images/{new-disk-image.qcow2} {size}
 ```
 
 ```
@@ -60,17 +71,18 @@ dd if =/dev/zro of={name-disk-image} bs=1M count=5120 status=progress
 - Attach a new disk permanently
 ```
 virsh attach-disk {VM-Name} \
---source /var/lib/libvirt/images/{new-disk-image}
---target vdX
+--source /var/lib/libvirt/images/{new-disk-image} \
+--target vdX \
 --persistent
+--subdriver qcow2
 ```
 
 - Attach a new disk temporarily
 ```
 virsh attach-disk {VM-name} \
---source /var/lib/libvirt/imges/{new-disk-image}
--- target vdX
--- cache none
+--source /var/lib/libvirt/imges/{new-disk-image} \
+--target vdX \
+--cache none
 ```
 
 ## Acronyms
@@ -82,3 +94,4 @@ virsh attach-disk {VM-name} \
 - PVs: Physical Volumes
 - VGs: Volume Groups
 - PEs: Physical Extents
+- UUID: Universally Unique Identifiers
