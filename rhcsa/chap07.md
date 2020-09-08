@@ -1,5 +1,5 @@
 # Packege Management
-p8
+p28
 
 ## RPM Database
 
@@ -34,8 +34,19 @@ p8
 - `rpm -qlp {Local_Package}` ==> All files for package
 - `rpm --checksig {Local_Package}`  ==> Checks the integrity of the package
 
+## YUM to the rescue
+
+- ` yum-config-manager` ==> The full list of yum configuration
+- `/etc/yum.repos.d/` ==> Configuration files
+- New repo file under `/ect/yum.repo.d/{file_name}.repo
+- New repo file must contain: _repositoryid_, _name_, and _baseurl_
+- Update the local DB cache with `yum clean all` and `yum makecache`
+- New rep from ISO file: `mount -o loop {file.iso} {/temp_dir}`, `cp -a /temp_dir/. {/local/dir}`, and then create the repo file with `baseurl=file///local/dir/.}`
+
+
 ## Acronyms
 
 - GPG: GNU Privacy Guard
 - PGP: Pretty Good Privacy
+- EPEL: Extra Packages for Enterprice Linux
 - PKI: Public Key Infrastructure
