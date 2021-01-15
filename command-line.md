@@ -15,23 +15,27 @@ Wildcard | Short description
 
 ## File Searches  
 
-### Find  
+### Find
+
 - `find [DIRECTORY] -name [FILENAME]`  
 - `find / -type d -perm -1000`
 - `find .-perm -2000`
 
 ### Locate  
+
 - Documentation `/etc/cron.daily/mlocate`
-- ` updatedb`
+- `updatedb`
 - `locate`  
 
 ## Commands to Read Text Streams  
+
 - `cat`  
 - `less` and `more` ==> These are called *pagers*  
 - `head` and `tail`
 - `tail -f -n 100 [FILENAME]`  
 
 ## Commands to Process Text Streams  
+
 - `sort`  
 - `grep`  
 - `grep -i [FILENAME]` ==> case-insensitive  
@@ -41,13 +45,16 @@ Wildcard | Short description
 - `wc`  
 
 ### SED  
+
 - `sed 's/[FINDWORD]/[REPLACEWORDWITH]/' [FILENAME] > [OUTPUTFILE]`  
 - `sed 's/[FINDWORD]/[REPLACEWORDWITH]/g' [FILENAME] > [OUTPUTFILE]`
 
 ### AWK  
+
 - `awk -F : '[WORD] {print $[COLUMN]}' [FILENAME]`
 
 ### VI
+
 - `vipw` ==> `/etc/passwd`
 - `vigw` ==> `/etc/group`
 - `visudo` ==> `/etc/sudoers`  
@@ -67,15 +74,17 @@ Metacharacter | Short Description
 `$` | Match the end of a line  
 
 ## Local Documentation  
- - `/usr/share/doc`  
- - `man`  
- - `whatis`  
- - `apropos`  
- - `/var/cache/man` ==> `whatis` and `apropos` database. Update this DB with command `/etc/cron.daily/man-db.cron`  
- - `whatis ip` ==> `man 7 ip`
- - `/usr/share/info`  
- - `pinfo [COMMAND]`  
+
+- `/usr/share/doc`  
+- `man`  
+- `whatis`  
+- `apropos`  
+- `/var/cache/man` ==> `whatis` and `apropos` database. Update his DB with command `/etc/cron.daily/man-db.cron`  
+- `whatis ip` ==> `man 7 ip`
+- `/usr/share/info`  
+- `pinfo [COMMAND]`  
 
 ## Cool Commands
+
 - `wall` --> Send a message to all the users connected to the system
 - `echo TEXTHERE | passwd --stdin USUARIO`
