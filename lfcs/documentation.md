@@ -19,6 +19,8 @@
 ## USR directory
 
 - `/usr/share/doc`
+- Search for a specific document
+  - `ls -la /usr/doc/share | egrep -i "command1|command2|command3"
 - Can be in many formats: TXT, MD, HTML, CSS, PNG, etc.
 
 ## Other commands
