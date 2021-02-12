@@ -25,6 +25,7 @@
 
 ## Other commands
 
+- `pinfo coreutils`
 - `apropos [keyword]`  ==> `apropos http`
 - `whatis [command]`   ==> `whatis egrep`
 - `which -a [command]` ==> `which -a egrep`
